@@ -207,6 +207,9 @@ collections:
   education:
     output: true
     permalink: /:collection/:path/
+  experience:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Sass/SCSS
@@ -301,6 +304,15 @@ defaults:
   - scope:
       path: ""
       type: education
+    values:
+      layout: single
+      author_profile: false
+      share: true
+      coment: true
+  # _experience
+  - scope:
+      path: ""
+      type: experience
     values:
       layout: single
       author_profile: false
