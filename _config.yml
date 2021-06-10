@@ -98,7 +98,7 @@ author:
   avatar           : "/assets/images/bio-photo.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Desenvolvedor Frontend"
   location         : "Montanha/ES/Brasil"
-  email            :
+  email            : "feluzan@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -118,6 +118,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/feluzan"
+    - label: "linkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/felix-zanetti/"
 
 # Site Footer
 footer:
