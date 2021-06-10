@@ -1,11 +1,11 @@
 # main links
 main:
-  - title: "Formação"
-    url: "/formacao-academica/"
+  - title: "Formação Acadêmica"
+    url: "/education/"
   - title: "Portfólio"
     url: "/portfolio/"
-  - title: "Experiência"
-    url: "/experiencia-profissional/"
+  - title: "Experiência Profissional"
+    url: "/experience/"
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
