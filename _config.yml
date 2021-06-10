@@ -300,8 +300,9 @@ defaults:
   # _education
   - scope:
       path: ""
-      type: educaton
+      type: education
     values:
       layout: single
       author_profile: false
       share: true
+      coment: true
