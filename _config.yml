@@ -300,7 +300,7 @@ defaults:
   # _education
   - scope:
       path: ""
-      type: portfolio
+      type: educaton
     values:
       layout: single
       author_profile: false
