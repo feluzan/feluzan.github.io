@@ -6,8 +6,8 @@ main:
     url: "/education/"
   - title: "Experiência"
     url: "/experience/"
-  - title: "Outros"
-    url: "/others/"
+  # - title: "Outros"
+    # url: "/others/"
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
