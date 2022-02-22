@@ -12,6 +12,12 @@ author_profile: true
 	<p>O site ainda não está totalmente completo, já peço desculpas caso algum link não esteja funcionando.</p>
 </div>
 
+<div>
+	<div class="entries-{{ entries_layout }}">
+	  {% include documents-collection.html collection=experience sort_by=page.sort_by sort_order=page.sort_order type=entries_layout %}
+	</div>
+</div>
+
 
 
 
