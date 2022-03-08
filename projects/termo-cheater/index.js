@@ -103,6 +103,9 @@ function refreshPossibleGuesses(){
 
 function refreshOutput(){
     $("#highlight").html(possibleGuesses.length);
+    $("#guesses-list").html(possibleGuesses.join(" || "));
+    
+
 }
 
 /** Remove da lista de possíveis palpites todas

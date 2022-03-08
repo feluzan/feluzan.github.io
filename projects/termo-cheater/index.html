@@ -17,6 +17,10 @@
 		<script src="words.js"></script>
 		<script src="index.js"></script>
 
+		<!-- jQuery Modal -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
 	</head>
 	<body>
 
@@ -112,9 +116,16 @@
 
 		<div class="result-wrapper">
 			Existem
-			<span id="highlight"></span> palavras que se encaixam nessas configurações.
-			
-			<div><button class="button">VER</button></div>
+			<a href="#guesses-modal" rel="modal:open" id="highlight"></a> palavras que se encaixam nessas configurações.
+		</div>
+
+		<!-- Modal HTML embedded directly into document -->
+		<div id="guesses-modal" class="modal">
+			<h3>Possíveis Palpites</h3>
+			<div id="guesses-list">
+				
+			</div>
+			<a href="#" rel="modal:close">Fechar</a>
 		</div>
 		
 	</body>
