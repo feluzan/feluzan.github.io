@@ -1,0 +1,174 @@
+a {
+  color: inherit; }
+
+body {
+  background-color: #6E5C62;
+  color: #ffffff;
+  font-family: 'Mitr', sans-serif; }
+
+.warning-wrapper {
+  margin-top: 20px;
+  padding: 10px;
+  width: 90%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FEFFCC;
+  color: #000000; }
+  .warning-wrapper h4 {
+    text-align: center;
+    margin: 0px; }
+  .warning-wrapper p {
+    margin: 0px;
+    font-size: 10px; }
+
+.button {
+  width: 50%;
+  margin-top: 5px;
+  --color: #00A97F;
+  padding: 5px 10px;
+  background-color: transparent;
+  border-radius: .3em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .5s;
+  font-weight: 400;
+  font-size: 16px;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: var(--color);
+  z-index: 1; }
+
+.button::before, .button::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--color);
+  transition: 1s ease; }
+
+.button::before {
+  top: -1em;
+  left: -1em; }
+
+.button::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em); }
+
+.button:hover::before, .button:hover::after {
+  height: 410px;
+  width: 410px; }
+
+.button:hover {
+  color: #0a191e; }
+
+.button:active {
+  filter: brightness(0.8); }
+
+.input-wrapper {
+  margin-bottom: 20px;
+  text-align: center;
+  /* reset input */ }
+  .input-wrapper .form__group {
+    position: relative;
+    padding: 10px 0 0;
+    width: 100%; }
+  .input-wrapper .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 18px;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    font-weight: 300; }
+    .input-wrapper .form__field::placeholder {
+      color: transparent; }
+    .input-wrapper .form__field:placeholder-shown ~ .form__label {
+      font-size: 14px;
+      cursor: text;
+      top: 20px; }
+  .input-wrapper .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b; }
+  .input-wrapper .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 300;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1; }
+    .input-wrapper .form__field:focus ~ .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: #11998e;
+      font-weight: 400; }
+  .input-wrapper .form__field:required, .input-wrapper .form__field:invalid {
+    box-shadow: none; }
+
+.view-wrapper {
+  max-width: 500px;
+  width: 100%; }
+  .view-wrapper p {
+    margin: 0px;
+    font-size: 10px; }
+  .view-wrapper .matrix {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .view-wrapper .matrix .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center; }
+      .view-wrapper .matrix .row .cell {
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        margin: 5px;
+        border-radius: 10%;
+        background-color: transparent;
+        border: 2px solid #4C4347;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase; }
+        .view-wrapper .matrix .row .cell[place="1"] {
+          background-color: #3aa394; }
+        .view-wrapper .matrix .row .cell[place="2"] {
+          background-color: #d3ad69; }
+        .view-wrapper .matrix .row .cell[place="3"] {
+          background-color: #312a2c; }
+      .view-wrapper .matrix .row.locked .cell {
+        background-color: #615458; }
+
+.result-wrapper {
+  text-align: center;
+  margin-top: 20px; }
+  .result-wrapper #highlight {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 3px;
+    background-color: #3aa394;
+    line-height: 100%; }
+
+/*# sourceMappingURL=index.css.map */

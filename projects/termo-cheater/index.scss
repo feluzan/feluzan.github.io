@@ -1,0 +1,247 @@
+
+
+$colorRight: #3aa394;
+$colorPlace: #d3ad69;
+$colorWrong: #312a2c;
+
+$mainBackground: #6E5C62;
+$cellBackground: #615458;
+$letterColor: #ffffff;
+
+$warningBackground: #FEFFCC;
+
+
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+
+a{
+	// text-decoration: none;
+	color: inherit;
+}
+body{
+	background-color: $mainBackground;
+	color: $letterColor;
+	font-family: 'Mitr', sans-serif;
+}
+header{
+
+}
+.warning-wrapper{
+	margin-top: 20px;
+	padding: 10px;
+	width: 90%;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: $warningBackground;
+	color: #000000;
+	h4{
+		text-align: center;
+		margin: 0px;
+		// font-size: 24px;
+	}
+	p{
+		margin: 0px;
+		font-size: 10px;
+	}
+}
+
+.button {
+	width: 50%;
+	margin-top: 5px;
+	--color: #00A97F;
+	padding: 5px 10px;
+	background-color: transparent;
+	border-radius: .3em;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	transition: .5s;
+	font-weight: 400;
+	font-size: 16px;
+	border: 1px solid;
+	font-family: inherit;
+	text-transform: uppercase;
+	color: var(--color);
+	z-index: 1;
+}
+
+.button::before, .button::after {
+	content: '';
+	display: block;
+	width: 50px;
+	height: 50px;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	border-radius: 50%;
+	z-index: -1;
+	background-color: var(--color);
+	transition: 1s ease;
+}
+
+.button::before {
+	top: -1em;
+	left: -1em;
+}
+
+.button::after {
+	left: calc(100% + 1em);
+	top: calc(100% + 1em);
+}
+
+.button:hover::before, .button:hover::after {
+	height: 410px;
+	width: 410px;
+}
+
+.button:hover {
+	color: rgb(10, 25, 30);
+}
+
+.button:active {
+	filter: brightness(.8);
+}
+
+.input-wrapper{
+	// margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+
+	.form__group {
+		position: relative;
+		padding: 10px 0 0;
+		// margin-top: 10px;
+		width: 100%;
+	  }
+	  
+	  .form__field {
+		font-family: inherit;
+		width: 100%;
+		border: 0;
+		border-bottom: 2px solid $gray;
+		outline: 0;
+		font-size: 18px;
+		color: $white;
+		padding: 7px 0;
+		background: transparent;
+		transition: border-color 0.2s;
+		font-weight: 300;
+		&::placeholder {
+		  color: transparent;
+		}
+	  
+		&:placeholder-shown ~ .form__label {
+		  font-size: 14px;
+		  cursor: text;
+		  top: 20px;
+		}
+	  }
+	  
+	  .form__label {
+		position: absolute;
+		top: 0;
+		display: block;
+		transition: 0.2s;
+		font-size: 1rem;
+		color: $gray;
+	  }
+	  
+	  .form__field:focus {
+		~ .form__label {
+		  position: absolute;
+		  top: 0;
+		  display: block;
+		  transition: 0.2s;
+		  font-size: 1rem;
+		  color: $primary;
+		  font-weight:400;    
+		}
+		padding-bottom: 6px;  
+		font-weight: 300;
+		border-width: 3px;
+		border-image: linear-gradient(to right, $primary,$secondary);
+		border-image-slice: 1;
+	  }
+	  /* reset input */
+	  .form__field{
+		&:required,&:invalid { box-shadow:none; }
+	  }
+ 
+}
+
+.view-wrapper{
+	max-width: 500px;
+	width: 100%;
+	p{
+		margin: 0px;
+		font-size: 10px;
+	}
+
+	.matrix{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.row{
+			// width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			.cell{
+				cursor: pointer;
+				width: 35px;
+				height: 35px;
+				margin: 5px;
+				border-radius: 10%;
+				background-color: transparent;
+				border: 2px solid #4C4347;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 24px;
+				font-weight: bold;
+				text-transform: uppercase;
+
+				&[place="1"]{
+					background-color: $colorRight;
+				}
+				&[place="2"]{
+					background-color: $colorPlace;
+				}
+				&[place="3"]{
+					background-color: $colorWrong;
+				}
+				
+			}
+			&.locked{
+				.cell{
+					background-color: $cellBackground;
+					
+				}
+			}
+		}
+	}
+}
+
+.result-wrapper{
+	// display: flex;
+	text-align: center;
+	margin-top: 20px;
+
+	#highlight{
+		margin-left: 10px;
+		margin-right: 10px;
+		padding: 3px;
+		background-color: $colorRight;
+		line-height: 100%;
+	}
+	.words-list{
+
+	}
+}

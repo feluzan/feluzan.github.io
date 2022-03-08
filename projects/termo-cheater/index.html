@@ -1,0 +1,121 @@
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<meta name="description" content="Um trapaceador para Termo" />
+		<meta name="keywords" content="" />
+
+		<title>Trapaceador para Termo*</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="index.css" />
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script src="words.js"></script>
+		<script src="index.js"></script>
+
+	</head>
+	<body>
+
+		<header>
+			Por <a href="https://feluzan.github.io">Félix Zanetti.</a>
+		</header>
+
+		<div class="warning-wrapper">
+			<h4>ATENÇÃO</h4>
+			<p>
+				1 - <a href="https://term.ooo/">Termo</a> é um passatempo excelente. Utilize o recurso aqui disponível apenas quando seu cérebro estiver derretendo e esse não for o seu objetivo.
+			</p>
+			<p>
+				2 - Somente um filtro de palavras é feito. Esse não é um trapaceador que dá sugestões.
+			</p>
+
+			<p>
+				3 - O filtro de palavras possívels é MUITO básico. Podem ter palavras que não são aceitas no <a href="https://term.ooo/">Termo</a> (e o contrário também).
+			</p>
+		</div>
+
+
+		<div class="input-wrapper">
+			<div class="form__group field">
+				<input type="input" class="form__field" placeholder="Qual foi o seu chute?" name="guess" id='guess' required />
+				<label for="guess" class="form__label">Qual foi o seu chute?</label>
+			</div>
+			<button class="button" onclick="insertGuess()">INSERIR</button>
+
+		</div>
+
+
+
+		<!-- place: informação sobre a letra digitada
+						0 = sem informação
+						1 = letra na posição correta
+						2 = letra existente na posição incorreta
+						3 = letra inexistente
+		-->
+		<div class="view-wrapper">
+			<p>Toque nas letras até que o resultado fique idêntico ao seu palpite no jogo</p>
+			<div class="matrix">
+				<div class="row locked" data-row=0>
+					<div class="cell" index=0 place=0></div>
+					<div class="cell" index=1 place=0></div>
+					<div class="cell" index=2 place=0></div>
+					<div class="cell" index=3 place=0></div>
+					<div class="cell" index=4 place=0></div>
+				</div>
+
+				<div class="row locked" data-row=1>
+					<div class="cell" index=0 place=0></div>
+					<div class="cell" index=1 place=0></div>
+					<div class="cell" index=2 place=0></div>
+					<div class="cell" index=3 place=0></div>
+					<div class="cell" index=4 place=0></div>
+				</div>
+
+				<div class="row locked" data-row=2>
+					<div class="cell" index=0 place=0></div>
+					<div class="cell" index=1 place=0></div>
+					<div class="cell" index=2 place=0></div>
+					<div class="cell" index=3 place=0></div>
+					<div class="cell" index=4 place=0></div>
+				</div>
+
+				<div class="row locked" data-row=3>
+					<div class="cell" index=0 place=0></div>
+					<div class="cell" index=1 place=0></div>
+					<div class="cell" index=2 place=0></div>
+					<div class="cell" index=3 place=0></div>
+					<div class="cell" index=4 place=0></div>
+				</div>
+
+				<div class="row locked" data-row=4>
+					<div class="cell" index=0 place=0></div>
+					<div class="cell" index=1 place=0></div>
+					<div class="cell" index=2 place=0></div>
+					<div class="cell" index=3 place=0></div>
+					<div class="cell" index=4 place=0></div>
+				</div>
+
+				<div class="row locked" data-row=5>
+					<div class="cell" index=0 place=0></div>
+					<div class="cell" index=1 place=0></div>
+					<div class="cell" index=2 place=0></div>
+					<div class="cell" index=3 place=0></div>
+					<div class="cell" index=4 place=0></div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="result-wrapper">
+			Existem
+			<span id="highlight"></span> palavras que se encaixam nessas configurações.
+			
+			<div><button class="button">VER</button></div>
+		</div>
+		
+	</body>
+</html>
