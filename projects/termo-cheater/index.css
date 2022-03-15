@@ -153,7 +153,8 @@ footer {
         align-items: center;
         font-size: 24px;
         font-weight: bold;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        animation: 0.45s linear flip 0s forwards; }
         .view-wrapper .matrix .row .cell[place="1"] {
           background-color: #3aa394; }
         .view-wrapper .matrix .row .cell[place="2"] {
@@ -178,3 +179,5 @@ footer {
 
 .modal {
   color: #000; }
+
+/*# sourceMappingURL=index.css.map */

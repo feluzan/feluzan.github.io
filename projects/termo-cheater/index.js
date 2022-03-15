@@ -35,7 +35,7 @@ function typedGuessSize(){
 }
 
 function isTypedGuessValid(){
-    var typed = $("#guess").val();
+    var typed = $("#guess").val().toLowerCase();
     if(typed.length == 0){
         setHelpText("");
         return false;
@@ -93,6 +93,7 @@ function insertGuess(){
         $(children[i]).html(guess[i].toLowerCase());
     }
     $("#guess").val("");
+    setHelpText("");
     currentRow+=1;
 
     $('#insert-button').blur();
@@ -116,48 +117,67 @@ function getWordFromRow(rowNumber){
     return word;
 }
 
-function refreshPossibleGuesses(){
-    possibleGuesses = words;
-    var processed = "";
-
-    /** Ordem de processamento 1: letras na posição correta */
-    var rightLetters = $(".cell[place=1]");
-    for(i=0;i<rightLetters.length;i++){
-        var childLetter = $(rightLetters[i]).html();
-        var childndex = $(rightLetters[i]).attr("index");
-        processed += childLetter;
-        removePossibleGuessesByRightLetter(childLetter,childndex);
-    }
-
-    /** Ordem de processamento 2: letras na posição incorreta
-     * ignorando caso elas estejam na string processed
-     */
-    var wrongLetters = $(".cell[place=3]");
-    for(i=0;i<wrongLetters.length;i++){
-        var childLetter = $(wrongLetters[i]).html();
-        if(processed.indexOf(childLetter)>-1) continue;
-        processed += childLetter;
-        removePossibleGuessesByWrongLetter(childLetter,childndex);
-    }
-
-    /** Ordem de processamento 3: letras existentes em posição incorreta */
-    var placeLetters = $(".cell[place=2]");
-    for(i=0;i<placeLetters.length;i++){
-        var childLetter = $(placeLetters[i]).html();
-        var childndex = $(placeLetters[i]).attr("index");
-        if(processed.indexOf(childLetter)>-1) continue;
-        processed += childLetter;
-        removePossibleGuessesByPlaceLetter(childLetter,childndex);
-    }
-
-    refreshOutput();
-
-}
-
 function refreshOutput(){
     $("#highlight").html(possibleGuesses.length);
     $("#guesses-list").html(possibleGuesses.join(" || "));
     
+
+}
+
+function countInArray(array, value){
+    occurrences = array.reduce(function (acc, curr) {
+        return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc
+    }, {});
+    var count = occurrences[value];
+    if(count) return count;
+    return 0;
+}
+
+
+function refreshPossibleGuesses(){
+    possibleGuesses = words;
+    
+    var rows = $(".row").not(".locked");
+    
+    // Analisando uma linha por vez
+    for(i=0;i<rows.length;i++){
+        var processedRight = [];
+        var processedPlace = [];
+        var processedWrong = [];
+        var word = getWordFromRow(i);
+
+        // Células com letras na posição correta
+        var rightCells = $(rows[i]).children(".cell[place=1]");
+        for (j=0;j<rightCells.length;j++){
+            var content = $(rightCells[j]).html();
+            processedRight.push(content);
+            removePossibleGuessesByRightLetter(content,$(rightCells[j]).attr("index"));
+        }
+        
+        // Células com letras na posição incorreta
+        var placeCells = $(rows[i]).children(".cell[place=2]");
+        for (j=0;j<placeCells.length;j++){
+            var content = $(placeCells[j]).html();
+            countRight = countInArray(processedRight,content);
+            countPlace = countInArray(processedPlace,content);
+            removePossibleGuessesByCountingLetters(content, countRight+countPlace+1, true);
+            processedPlace.push(content);
+            removePossibleGuessesByPlaceLetter(content,$(placeCells[j]).attr("index"));
+        }
+
+        // Células com letras erradas
+        var placeCells = $(rows[i]).children(".cell[place=2]");
+        for (j=0;j<placeCells.length;j++){
+            var content = $(placeCells[j]).html();
+            countRight = countInArray(processedRight,content);
+            countPlace = countInArray(processedPlace,content);
+            removePossibleGuessesByCountingLetters(content, countRight+countPlace+1, false);
+            processedWrong.push(content);
+            // removePossibleGuessesByPlaceLetter(content,$(placeCells[j]).attr("index"));
+        }
+        
+    }
+    refreshOutput();
 
 }
 
@@ -176,5 +196,14 @@ function removePossibleGuessesByRightLetter(letter,position){
 /** Remove da lista de possíveis palpites todas
  *  as palavras que não tenham determinada letra */
 function removePossibleGuessesByPlaceLetter(letter, index){
-    possibleGuesses = possibleGuesses.filter(word => word.indexOf(letter)>-1 && word.indexOf(letter)!=index);
+    possibleGuesses = possibleGuesses.filter(word => word.indexOf(letter)>-1 && word[index]!=letter);
+}
+
+function removePossibleGuessesByCountingLetters(letter, count, atLeast = true){
+    if (atLeast){
+        possibleGuesses = possibleGuesses.filter(word => word.split(letter).length -1 >= count);
+    }else{
+        possibleGuesses = possibleGuesses.filter(word => word.split(letter).length - 1 == count);
+    }
+
 }
