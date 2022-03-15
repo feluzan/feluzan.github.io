@@ -9,15 +9,65 @@ $(document).ready(function() {
     $(".cell").on("selectstart", false);
     $(".cell").on("mousedown", false);
     $("#guess").on("keypress", checkInputKeyPress);
+    $("#guess").on('input',onInputChange);
 
     refreshPossibleGuesses();
+    setHelpText("");
 });
 
+function setHelpText(text){
+    $("#help-text").text(text);
+    if(text.length==0) $("#help-text").addClass("empty");
+    else $("#help-text").removeClass("empty"); 
+}
+
 function checkInputKeyPress(e){
+    
     var keyCode = e.code || e.key;
-    if (keyCode == 'Enter'){
+    if (keyCode == 'Enter' && isTypedGuessValid()){
         insertGuess();
     }
+}
+
+function typedGuessSize(){
+    var typed = $("#guess").val();
+    return typed.length;
+}
+
+function isTypedGuessValid(){
+    var typed = $("#guess").val();
+    if(typed.length == 0){
+        setHelpText("");
+        return false;
+    }
+    if(typed.length == 5){
+        if (words.indexOf(typed)>-1){
+            setHelpText("Essa palavra está ok.")
+            return true;
+        }else{
+            setHelpText("Essa palavra não está no nosso dicionário.");
+            return false;
+        }
+    }
+    if(typed.length > 5){
+        setHelpText("Tem muita letra nessa palavra. Use somente 5 letras.");
+        return false;
+    }
+    if(typed.length < 5){
+        setHelpText("Digite um pouco mais. Somente palavras de 5 letras são aceitas.");
+        return false;
+    }
+
+
+}
+
+function onInputChange(e){
+    if(isTypedGuessValid()){
+        $("#insert-button").prop("disabled",false);
+    }else{
+        $("#insert-button").prop("disabled",true);
+    }
+    
 }
 
 function onClickCell(){
@@ -44,11 +94,11 @@ function insertGuess(){
     }
     $("#guess").val("");
     currentRow+=1;
+
+    $('#insert-button').blur();
 }
 
-
 function guessValidator(guess){
-    console.log(guess.length)
     if(guess.length != 5){
         alert("Tem certeza? A palavra digitada não tem 5 letras.")
         return false;
@@ -66,7 +116,6 @@ function getWordFromRow(rowNumber){
     return word;
 }
 
-
 function refreshPossibleGuesses(){
     possibleGuesses = words;
     var processed = "";
@@ -76,6 +125,7 @@ function refreshPossibleGuesses(){
     for(i=0;i<rightLetters.length;i++){
         var childLetter = $(rightLetters[i]).html();
         var childndex = $(rightLetters[i]).attr("index");
+        processed += childLetter;
         removePossibleGuessesByRightLetter(childLetter,childndex);
     }
 
@@ -86,6 +136,7 @@ function refreshPossibleGuesses(){
     for(i=0;i<wrongLetters.length;i++){
         var childLetter = $(wrongLetters[i]).html();
         if(processed.indexOf(childLetter)>-1) continue;
+        processed += childLetter;
         removePossibleGuessesByWrongLetter(childLetter,childndex);
     }
 
@@ -94,6 +145,8 @@ function refreshPossibleGuesses(){
     for(i=0;i<placeLetters.length;i++){
         var childLetter = $(placeLetters[i]).html();
         var childndex = $(placeLetters[i]).attr("index");
+        if(processed.indexOf(childLetter)>-1) continue;
+        processed += childLetter;
         removePossibleGuessesByPlaceLetter(childLetter,childndex);
     }
 

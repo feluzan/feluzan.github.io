@@ -1,26 +1,39 @@
 a {
   color: inherit; }
 
+h1 {
+  color: #FAFAFF;
+  font-family: 'Mitr', sans-serif;
+  font-weight: 600;
+  font-size: 4vh;
+  line-height: 6vh;
+  height: 6vh;
+  text-transform: uppercase;
+  text-align: center; }
+
 body {
   background-color: #6E5C62;
   color: #ffffff;
-  font-family: 'Mitr', sans-serif; }
+  font-family: 'Mitr', sans-serif;
+  margin: 0px; }
 
-.warning-wrapper {
-  margin-top: 10px;
-  padding: 10px;
-  width: 90%;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #FEFFCC;
-  color: #000000; }
-  .warning-wrapper h4 {
-    text-align: center;
-    margin: 0px; }
-  .warning-wrapper p {
-    margin: 0px;
-    font-size: 10px; }
+header {
+  font-size: 10px;
+  width: calc(100% - 8px);
+  display: flex;
+  justify-content: center;
+  background-color: #222222;
+  padding: 4px; }
+  header a {
+    margin-right: 2px; }
+
+footer {
+  font-size: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 4px; }
 
 .button {
   width: 50%;
@@ -40,36 +53,8 @@ body {
   text-transform: uppercase;
   color: var(--color);
   z-index: 1; }
-
-.button::before, .button::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 50px;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  border-radius: 50%;
-  z-index: -1;
-  background-color: var(--color);
-  transition: 1s ease; }
-
-.button::before {
-  top: -1em;
-  left: -1em; }
-
-.button::after {
-  left: calc(100% + 1em);
-  top: calc(100% + 1em); }
-
-.button:hover::before, .button:hover::after {
-  height: 410px;
-  width: 410px; }
-
-.button:hover {
-  color: #0a191e; }
-
-.button:active {
-  filter: brightness(0.8); }
+  .button:disabled {
+    opacity: 0.5; }
 
 .input-wrapper {
   margin-bottom: 20px;
@@ -77,6 +62,7 @@ body {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  padding: 10px;
   /* reset input */ }
   .input-wrapper .form__group {
     position: relative;
@@ -93,7 +79,8 @@ body {
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.2s;
-    font-weight: 300; }
+    font-weight: 300;
+    text-transform: uppercase; }
     .input-wrapper .form__field::placeholder {
       color: transparent; }
     .input-wrapper .form__field:placeholder-shown ~ .form__label {
@@ -123,13 +110,22 @@ body {
       font-weight: 400; }
   .input-wrapper .form__field:required, .input-wrapper .form__field:invalid {
     box-shadow: none; }
+  .input-wrapper .help-text {
+    transition: 0.5s ease height;
+    height: 20px;
+    text-align: left;
+    font-size: 10px; }
+    .input-wrapper .help-text.empty {
+      height: 0px;
+      transition: 0.5s ease height; }
 
 .view-wrapper {
   max-width: 500px;
-  width: 100%;
+  width: calc(100% - 20px);
   max-width: 500px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  padding: 10px; }
   .view-wrapper p {
     margin: 0px;
     font-size: 10px; }
@@ -182,5 +178,3 @@ body {
 
 .modal {
   color: #000; }
-
-/*# sourceMappingURL=index.css.map */

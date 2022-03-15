@@ -25,33 +25,20 @@
 	<body>
 
 		<header>
-			Por <a href="https://feluzan.github.io">Félix Zanetti.</a>
+			<a href="#disclaimer-modal" rel="modal:open">Clique aqui</a> e leia alguns avisos. Talvez seja importante.
 		</header>
 
-		<div class="warning-wrapper">
-			<h4>ATENÇÃO</h4>
-			<p>
-				1 - <a href="https://term.ooo/">Termo</a> é um passatempo excelente. Utilize o recurso aqui disponível apenas quando seu cérebro estiver derretendo e esse não for o seu objetivo.
-			</p>
-			<p>
-				2 - Somente um filtro de palavras é feito. Esse não é um trapaceador que dá sugestões.
-			</p>
+		<h1>Trapaceador<br /> para Termo</h1>
 
-			<p>
-				3 - O filtro de palavras possívels é MUITO básico. Podem ter palavras que não são aceitas no <a href="https://term.ooo/">Termo</a> (e o contrário também).
-			</p>
-			<p>
-				4 - Se não gostou, não use.
-			</p>
-		</div>
-
+		<br />
 
 		<div class="input-wrapper">
 			<div class="form__group field">
-				<input type="input" class="form__field" placeholder="Qual foi o seu chute?" name="guess" id='guess' required />
+				<input type="input" class="form__field" placeholder="Qual foi o seu chute?" name="guess" id='guess' required/>
 				<label for="guess" class="form__label">Qual foi o seu chute?</label>
 			</div>
-			<button class="button" onclick="insertGuess()">INSERIR</button>
+			<div id="help-text" class="help-text"></div>
+			<button id="insert-button" class="button" onclick="insertGuess()">INSERIR</button>
 
 		</div>
 
@@ -130,6 +117,32 @@
 			</div>
 			<a href="#" rel="modal:close">Fechar</a>
 		</div>
+
+		<div id="disclaimer-modal" class="modal">
+			<h4>ATENÇÃO</h4>
+			<p>
+				1 - <a href="https://term.ooo/">Termo</a> é um passatempo excelente. Utilize o recurso aqui disponível apenas quando seu cérebro estiver derretendo e esse não for o seu objetivo.
+			</p>
+			<p>
+				2 - Somente um filtro de palavras é feito. Esse não é um trapaceador que dá sugestões.
+			</p>
+
+			<p>
+				3 - A fonte de lista de palavras aqui utilizada foi encontrada na página do professor Paulo Feofiloff e pode ser acessada <a href="https://www.ime.usp.br/~pf/dicios/br-sem-acentos.txt">clicando aqui</a>.
+			</p>
+			<p>
+				4- Existem bugs já identificados, mas você pode <a href="mailto:feluzan@gmail.com">mandar um e-mail</a> para me informar caso tenha percebido algum.
+			</p>
+			<p>
+				4 - Se não gostou, não use.
+			</p>
+			<a href="#" rel="modal:close">Fechar</a>
+		</div>
+
+
+		<footer>
+			Por <a href="https://feluzan.github.io">Félix Zanetti.</a>
+		</footer>
 		
 	</body>
 </html>
