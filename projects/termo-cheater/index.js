@@ -166,14 +166,14 @@ function refreshPossibleGuesses(){
         }
 
         // Células com letras erradas
-        var placeCells = $(rows[i]).children(".cell[place=2]");
+        var placeCells = $(rows[i]).children(".cell[place=3]");
         for (j=0;j<placeCells.length;j++){
             var content = $(placeCells[j]).html();
             countRight = countInArray(processedRight,content);
             countPlace = countInArray(processedPlace,content);
             removePossibleGuessesByCountingLetters(content, countRight+countPlace+1, false);
             processedWrong.push(content);
-            // removePossibleGuessesByPlaceLetter(content,$(placeCells[j]).attr("index"));
+            removePossibleGuessesByWrongLetter(content,$(placeCells[j]).attr("index"));
         }
         
     }
@@ -183,8 +183,8 @@ function refreshPossibleGuesses(){
 
 /** Remove da lista de possíveis palpites todas
  *  as palavras que tenham determinada letra */
-function removePossibleGuessesByWrongLetter(letter){
-    possibleGuesses = possibleGuesses.filter(word => word.indexOf(letter)==-1);
+function removePossibleGuessesByWrongLetter(letter, index){
+    possibleGuesses = possibleGuesses.filter(word =>word[index]!=letter);
 }
 
 /** Remove da lista de possíveis palpites todas
