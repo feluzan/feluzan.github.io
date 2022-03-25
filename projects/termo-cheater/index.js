@@ -6,6 +6,12 @@ var possibleGuesses = null;
 
 var canTouch = -1;
 
+var allLetters = "abcdefghijklmnopqrstuvwxyz";
+
+const sleep = (milliseconds) => {
+	return new Promise(resolve => setTimeout(resolve, milliseconds))
+	// return;
+}
 
 $(document).ready(function() {
     $(".cell").click(onClickCell);
@@ -14,7 +20,9 @@ $(document).ready(function() {
     $("#guess").on("keypress", checkInputKeyPress);
     $("#guess").on('input',onInputChange);
 
-    $(".key").click(keyTouch);;
+    $(".key").click(keyTouch);
+
+    document.addEventListener ('keydown', onKeyPress);
 
     refreshPossibleGuesses();
     setHelpText("");
@@ -23,15 +31,23 @@ $(document).ready(function() {
 });
 
 function keyTouch(e){
+    hideWarningMsg();
     var key = $(e.target).attr("key-value");
     if(key=="backspace"){
-        if(currentCol==0) return;
+        if(currentCol==0){
+            showWarningMsg("sem letra para apagar");
+            return;
+        }
         fillLetter("",currentRow,--currentCol);
         return;
     }
     if(key=="enter"){
+        if(currentCol==0){
+            shakeRow(currentRow);
+            return;
+        }
         if(currentCol!=5){
-            console.log("palavra de tamanho errado");
+            showWarningMsg("só palavras com 5 letras");
             return;
         }
         var typed = getWordFromRow(currentRow);
@@ -44,7 +60,7 @@ function keyTouch(e){
             canTouch++;
             return;
         }else{
-            console.log("essa palavra não existe");
+            showWarningMsg("essa palavra não é aceita");
             return;
         }
 
@@ -60,6 +76,48 @@ function setAllRowWrong(row){
     refreshPossibleGuesses();
 }
 
+function onKeyPress(e){
+    hideWarningMsg();
+    if(allLetters.includes(e.key)){
+        if(currentCol==5) return;
+        fillLetter(e.key,currentRow,currentCol++);
+        return;
+    }
+    if(e.key=="Enter"){
+        if(currentCol==0){
+            shakeRow(currentRow);
+            return;
+        }
+        if(currentCol!=5){
+            showWarningMsg("só palavras com 5 letras");
+            return;
+        }
+        var typed = getWordFromRow(currentRow);
+        if (words.indexOf(typed)>-1){
+            setAllRowWrong(currentRow);
+            currentRow++;
+            currentCol=0;
+            var row = $(".row[data-row=" + currentRow + "]")[0];
+            $(row).removeClass("locked");
+            canTouch++;
+            return;
+        }else{
+            showWarningMsg("essa palavra não é aceita");
+            return;
+        }
+    }
+    if(e.key=="Backspace"){
+        if(currentCol==0){
+            showWarningMsg("sem letra para apagar");
+            return;
+        }
+        fillLetter("",currentRow,--currentCol);
+        return;
+    }
+
+    // console.log(e.key);
+
+}
 function fillLetter(letter,row,col){
     var row = $(".row[data-row=" + row + "]")[0];
     children = $(row).children();
@@ -250,4 +308,33 @@ function rightPosition(letter, position){
 
 function wrongPosition(letter,position){
     possibleGuesses = possibleGuesses.filter(word =>word[position]!=letter);
+}
+
+function showWarningMsg(text){
+    if($("#warning-msg").hasClass("show")){
+        $("#warning-msg").removeClass("show");
+    }
+    $("#warning-msg").text(text);
+    $("#warning-msg").addClass("show");
+}
+
+async function hideWarningMsg(){
+    if($("#warning-msg").hasClass("hide")) return;
+
+    if($("#warning-msg").hasClass("show")){
+        $("#warning-msg").removeClass("show");
+        await sleep(0.00001);
+        $("#warning-msg").addClass("hide");
+        await sleep(250);
+        $("#warning-msg").removeClass("hide");
+
+    }
+}
+
+async function shakeRow(rowN){
+    var row = $(".row[data-row=" + rowN + "]")[0];
+    $(row).addClass("shake");
+    await sleep(750);
+    $(row).removeClass("shake");
+
 }

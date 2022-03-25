@@ -28,30 +28,16 @@
 			<a href="#disclaimer-modal" rel="modal:open">Clique aqui</a> e leia alguns avisos. Talvez seja importante.
 		</header>
 
-		<h1>Trapaceador<br /> para Termo</h1>
+		<div class="title-wrapper">
+			<h1>Trapaceador para Termo</h1>
+		</div>
 
-		<br />
+		<div class="warning-wrapper">
+			<div class="warning" id="warning-msg">Teste</div>
+		</div>
 
-		<!-- <div class="input-wrapper">
-			<div class="form__group field">
-				<input type="input" class="form__field" placeholder="Qual foi o seu chute?" name="guess" id='guess' required/>
-				<label for="guess" class="form__label">Qual foi o seu chute?</label>
-			</div>
-			<div id="help-text" class="help-text"></div>
-			<button id="insert-button" class="button" onclick="insertGuess()">INSERIR</button>
-
-		</div> -->
-
-
-
-		<!-- place: informação sobre a letra digitada
-						0 = sem informação
-						1 = letra na posição correta
-						2 = letra existente na posição incorreta
-						3 = letra inexistente
-		-->
 		<div class="view-wrapper">
-			<p>Toque nas letras até que o resultado fique idêntico ao seu palpite no jogo</p>
+			<p style="text-align: center;">Tá com dificuldade? <a href="#instructions-modal" rel="modal:open" id="instructions">Veja como usar clicando aqui.</a></p>
 			<div class="matrix">
 				<div class="row locked" data-row=0>
 					<div class="cell" index=0 place=0></div>
@@ -178,6 +164,15 @@
 			<a href="#" rel="modal:close">Fechar</a>
 		</div>
 
+
+		<div id="instructions-modal" class="modal">
+			<h4>Se liga, dodói, o bagulho é muito fácil</h4>
+			<p>Você vai digitar aqui o mesmo palpite que você digitou lá no termo.</p>
+			<p>Depois, use esse seu dedinho (ou o mouse) e clica em cima das caixinhas das letras até que as cores fiquem iguais ao que apareceu lá no jogo original.</p>
+			<p>Feito isso, quando você clicar no número que tem ali embaixo, vai aparecer uma lista de todas as possíveis palavras que se encaixam.</p>
+			
+			<a href="#" rel="modal:close">Fechar</a>
+		</div>
 
 		<footer>
 			Por <a target="_blank" href="https://feluzan.github.io">Félix Zanetti.</a>
