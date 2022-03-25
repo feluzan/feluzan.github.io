@@ -7,7 +7,8 @@ h1 {
   font-weight: 600;
   font-size: 4vh;
   text-transform: uppercase;
-  text-align: center; }
+  text-align: center;
+  margin: 0px; }
 
 body {
   background-color: #6E5C62;
@@ -19,7 +20,7 @@ header {
   font-size: 10px;
   width: calc(100% - 8px);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   background-color: #222222;
   padding: 4px; }
   header a {
@@ -87,7 +88,7 @@ footer {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px; }
+  padding: 0px 10px 10px 10px; }
   .view-wrapper p {
     margin: 0px;
     font-size: 10px; }
@@ -109,7 +110,7 @@ footer {
         cursor: pointer;
         width: 35px;
         height: 35px;
-        margin: 5px;
+        margin: 0px 5px 5px 5px;
         border-radius: 10%;
         background-color: transparent;
         border: 2px solid #4C4347;
@@ -131,7 +132,6 @@ footer {
 
 .result-wrapper {
   text-align: center;
-  margin-top: 20px;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto; }
