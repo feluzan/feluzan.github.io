@@ -56,7 +56,8 @@ footer {
     opacity: 0.5; }
 
 .title-wrapper {
-  display: flex; }
+  display: flex;
+  justify-content: center; }
 
 .warning-wrapper {
   height: 50px; }
