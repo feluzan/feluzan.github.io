@@ -1,7 +1,10 @@
 
 var currentRow = 0;
+var currentCol = 0;
 
 var possibleGuesses = null;
+
+var canTouch = -1;
 
 
 $(document).ready(function() {
@@ -11,9 +14,57 @@ $(document).ready(function() {
     $("#guess").on("keypress", checkInputKeyPress);
     $("#guess").on('input',onInputChange);
 
+    $(".key").click(keyTouch);;
+
     refreshPossibleGuesses();
     setHelpText("");
+    var row = $(".row[data-row=" + currentRow + "]")[0];
+    $(row).removeClass("locked");
 });
+
+function keyTouch(e){
+    var key = $(e.target).attr("key-value");
+    if(key=="backspace"){
+        if(currentCol==0) return;
+        fillLetter("",currentRow,--currentCol);
+        return;
+    }
+    if(key=="enter"){
+        if(currentCol!=5){
+            console.log("palavra de tamanho errado");
+            return;
+        }
+        var typed = getWordFromRow(currentRow);
+        if (words.indexOf(typed)>-1){
+            setAllRowWrong(currentRow);
+            currentRow++;
+            currentCol=0;
+            var row = $(".row[data-row=" + currentRow + "]")[0];
+            $(row).removeClass("locked");
+            canTouch++;
+            return;
+        }else{
+            console.log("essa palavra não existe");
+            return;
+        }
+
+
+    }
+    if(currentCol==5) return;
+    fillLetter(key,currentRow,currentCol++);
+
+}
+
+function setAllRowWrong(row){
+    var row = $(".row[data-row=" + row + "] .cell").attr("place",3);
+    refreshPossibleGuesses();
+}
+
+function fillLetter(letter,row,col){
+    var row = $(".row[data-row=" + row + "]")[0];
+    children = $(row).children();
+    $(children[col]).html(letter.toLowerCase());
+}
 
 function setHelpText(text){
     $("#help-text").text(text);
@@ -71,6 +122,12 @@ function onInputChange(e){
 }
 
 function onClickCell(){
+    var parent = $(this).parent();
+    if(canTouch < parent.attr("data-row")){
+        console.log("opa");
+        return;
+    }
+    if(parent.hasClass("locked")) return;
     var currentPlace = parseInt($(this).attr("place"));
     if(currentPlace==3){
         $(this).attr("place", 1);

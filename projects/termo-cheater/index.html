@@ -32,7 +32,7 @@
 
 		<br />
 
-		<div class="input-wrapper">
+		<!-- <div class="input-wrapper">
 			<div class="form__group field">
 				<input type="input" class="form__field" placeholder="Qual foi o seu chute?" name="guess" id='guess' required/>
 				<label for="guess" class="form__label">Qual foi o seu chute?</label>
@@ -40,7 +40,7 @@
 			<div id="help-text" class="help-text"></div>
 			<button id="insert-button" class="button" onclick="insertGuess()">INSERIR</button>
 
-		</div>
+		</div> -->
 
 
 
@@ -105,8 +105,47 @@
 		</div>
 
 		<div class="result-wrapper">
-			Existem
-			<a href="#guesses-modal" rel="modal:open" id="highlight"></a> palavras que se encaixam nessas configurações.
+			Clique para ver os 
+			<a href="#guesses-modal" rel="modal:open" id="highlight"></a> palpites possíveis.
+		</div>
+
+		<div class="keyboard-wrapper">
+			<div class="upper-row">
+				<div class="key" key-value="Q">Q</div>
+				<div class="key" key-value="W">W</div>
+				<div class="key" key-value="E">E</div>
+				<div class="key" key-value="R">R</div>
+				<div class="key" key-value="T">T</div>
+				<div class="key" key-value="Y">Y</div>
+				<div class="key" key-value="U">U</div>
+				<div class="key" key-value="I">I</div>
+				<div class="key" key-value="O">O</div>
+				<div class="key" key-value="P">P</div>
+			</div>
+
+			<div class="middle-row">
+				<div class="key" key-value="A">A</div>
+				<div class="key" key-value="S">S</div>
+				<div class="key" key-value="D">D</div>
+				<div class="key" key-value="F">F</div>
+				<div class="key" key-value="G">G</div>
+				<div class="key" key-value="H">H</div>
+				<div class="key" key-value="J">J</div>
+				<div class="key" key-value="K">K</div>
+				<div class="key" key-value="L">L</div>
+				<div class="key backspace" key-value="backspace"><img key-value="backspace" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjkwIiBoZWlnaHQ9IjI1NSIgdmlld0JveD0iMCAwIDI5MCAyNTUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xOS44OTE0IDEyNy4yNTFMMTAzLjA2OCA0MEgyNzVWMjE2SDEwMy4xM0wxOS44OTE0IDEyNy4yNTFaIiBzdHJva2U9IiNGQUZBRkYiIHN0cm9rZS13aWR0aD0iMjYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPGxpbmUgeDE9IjEzIiB5MT0iLTEzIiB4Mj0iMTMwLjk0NyIgeTI9Ii0xMyIgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDcxMDcgMC43MDcxMDcgLTAuNzY1MzY3IDAuNjQzNTk0IDExNSA4NikiIHN0cm9rZT0iI0ZBRkFGRiIgc3Ryb2tlLXdpZHRoPSIyNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxsaW5lIHgxPSIxMyIgeTE9Ii0xMyIgeDI9IjEzMC45NDciIHkyPSItMTMiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MTA3IC0wLjcwNzEwNyAwLjc2NTM2NyAwLjY0MzU5NCAxMzMuNDY1IDE4Ny43ODYpIiBzdHJva2U9IiNGQUZBRkYiIHN0cm9rZS13aWR0aD0iMjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K" /></div>
+			</div>
+
+			<div class="bottom-row">
+				<div class="key" key-value="Z">Z</div>
+				<div class="key" key-value="X">X</div>
+				<div class="key" key-value="C">C</div>
+				<div class="key" key-value="V">V</div>
+				<div class="key" key-value="B">B</div>
+				<div class="key" key-value="N">N</div>
+				<div class="key" key-value="M">M</div>
+				<div class="key enter" key-value="enter">ENTER</div>
+			</div>
 		</div>
 
 		<!-- Modal HTML embedded directly into document -->

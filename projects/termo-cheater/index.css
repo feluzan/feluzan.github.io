@@ -177,6 +177,50 @@ footer {
     background-color: #3aa394;
     line-height: 100%; }
 
+.keyboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto; }
+  .keyboard-wrapper .upper-row,
+  .keyboard-wrapper .middle-row,
+  .keyboard-wrapper .bottom-row {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px; }
+  .keyboard-wrapper .upper-row {
+    padding-right: 20px; }
+  .keyboard-wrapper .key {
+    width: 27px;
+    height: 57px;
+    touch-action: manipulation;
+    outline: none;
+    background-color: #4C4347;
+    grid-column: span 3;
+    display: flex;
+    font-size: 1em;
+    line-height: 1em;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8%;
+    font-weight: 500;
+    font-family: 'Mitr', sans-serif;
+    cursor: pointer;
+    border: none;
+    color: #FAFAFF;
+    margin-right: 5px; }
+    .keyboard-wrapper .key.enter {
+      width: 75px;
+      margin-left: 10px; }
+    .keyboard-wrapper .key.backspace {
+      margin-left: 10px; }
+    .keyboard-wrapper .key img {
+      width: 1em; }
+
 .modal {
   color: #000; }
 
