@@ -25,20 +25,24 @@
 	<body>
 
 		<header>
-			<a href="#disclaimer-modal" rel="modal:open">Avisos</a>
-			<a href="#instructions-modal" rel="modal:open" id="instructions">Instruções</a>
+			<a href="#about-modal" rel="modal:open" id=""><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02My41MDA0IDI0QzQxLjY4NDQgMjQgMjQgNDEuNjg0IDI0IDYzLjQ5OTZDMjQgODUuMzE1MiA0MS42ODQ0IDEwMyA2My41MDA0IDEwM0M4NS4zMTY0IDEwMyAxMDMgODUuMzE1MiAxMDMgNjMuNDk5NkMxMDMgNDEuNjg0IDg1LjMxNjQgMjQgNjMuNTAwNCAyNFpNNzAuMzkyMiA4Ni44NTgxQzcwLjM5MjIgOTAuMzk5MyA2Ny4zMzA0IDkzLjI2ODcgNjMuNTU0MyA5My4yNjg3QzU5Ljc3ODIgOTMuMjY4NyA1Ni43MTY0IDkwLjM5OTMgNTYuNzE2NCA4Ni44NTgxVjU3LjQ0NjJDNTYuNzE2NCA1My45MDU5IDU5Ljc3ODIgNTEuMDM1NiA2My41NTQzIDUxLjAzNTZDNjcuMzMwNCA1MS4wMzU2IDcwLjM5MjIgNTMuOTA1OSA3MC4zOTIyIDU3LjQ0NjJWODYuODU4MVpNNjMuNTAwNCA0OC4zOTIyQzU5LjQzOTUgNDguMzkyMiA1Ni4xNDY5IDQ1LjEwMDUgNTYuMTQ2OSA0MS4wMzhDNTYuMTQ2OSAzNi45NzY0IDU5LjQzODcgMzMuNjg0NiA2My41MDA0IDMzLjY4NDZDNjcuNTYyOSAzMy42ODQ2IDcwLjg1NDcgMzYuOTc2NCA3MC44NTQ3IDQxLjAzOEM3MC44NTM5IDQ1LjEwMDUgNjcuNTYyMSA0OC4zOTIyIDYzLjUwMDQgNDguMzkyMloiIGZpbGw9IiNGQUZBRkYiLz4KPC9zdmc+Cg=="></a>
+			
+			<h1> Termo* </h1>
+			<a href="#instructions-modal" rel="modal:open" id="help"><div>?</div></a>
+			<a href="#disclaimer-modal" rel="modal:open"><div>!</div></a>
+			
 		</header>
 
-		<div class="title-wrapper">
+		<!-- <div class="title-wrapper">
 			<h1>Termo (?)</h1>
-		</div>
+		</div> -->
 
 		<div class="warning-wrapper">
-			<div class="warning" id="warning-msg">Teste</div>
+			<div class="warning" id="warning-msg"></div>
 		</div>
 
 		<div class="view-wrapper">
-			<div class="matrix">
+			<div class="matrix" id="matrix">
 				<div class="row locked" data-row=0>
 					<div class="cell" index=0 place=0></div>
 					<div class="cell" index=1 place=0></div>
@@ -146,37 +150,46 @@
 		<div id="disclaimer-modal" class="modal">
 			<h4>ATENÇÃO</h4>
 			<p>
-				1 - <a  target="_blank" href="https://term.ooo/">Termo</a> é um passatempo excelente. Utilize o recurso aqui disponível apenas quando seu cérebro estiver derretendo e esse não for o seu objetivo.
+				1 - <a  target="_blank" href="https://term.ooo/">Termo</a> é um passatempo excelente, não recomendamos o uso indiscriminado do Trapaceador.
 			</p>
 			<p>
-				2 - Somente um filtro de palavras é feito. Esse não é um trapaceador que dá sugestões.
+				2 - O Trapaceador apenas faz um filtro baseado nos palpites fornecidos. Sugestões de palpites não são dadas.
 			</p>
 
 			<p>
 				3 - A fonte de lista de palavras aqui utilizada é a mesma do Termo, <a target="_blank" href="https://github.com/fserb/pt-br/blob/master/dicio">disponível aqui</a>.
-			</p>
-			<p>
-				4- Existem bugs já identificados, mas você pode <a  target="_blank" href="mailto:feluzan@gmail.com">mandar um e-mail</a> para me informar caso tenha percebido algum.
-			</p>
-			<p>
-				4 - Se não gostou, não use.
 			</p>
 			<a href="#" rel="modal:close">Fechar</a>
 		</div>
 
 
 		<div id="instructions-modal" class="modal">
-			<h4>Se liga, dodói, o bagulho é muito fácil</h4>
-			<p>Você vai digitar aqui o mesmo palpite que você digitou lá no termo.</p>
-			<p>Depois, use esse seu dedinho (ou o mouse) e clica em cima das caixinhas das letras até que as cores fiquem iguais ao que apareceu lá no jogo original.</p>
-			<p>Feito isso, quando você clicar no número que tem ali embaixo, vai aparecer uma lista de todas as possíveis palavras que se encaixam.</p>
+			<h4>Instruções</h4>
+			<p>Digite o mesmo palpite que você digitou lá no jogo original.</p>
+			<p>Vá clicando na caixinha das letras até que as cores fiquem iguais às cores que apareceram no Termo.</p>
+			<p>Feito isso, ao clicar no número acima do teclado da tela, vai aparecer uma lista de todas as possíveis palavras que se encaixam.</p>
 			
 			<a href="#" rel="modal:close">Fechar</a>
 		</div>
 
-		<footer>
-			Por <a target="_blank" href="https://feluzan.github.io">Félix Zanetti.</a>
-		</footer>
+		<div id="about-modal" class="modal">
+			<h4>Sobre o Trapaceador</h4>
+			<h5>Oi, tudo bom?</h5>
+			<p>O Trapaceador para Termo foi criado por mim, <a href="http://feluzan.github.io">Félix Zanetti</a>, em março de 2022</p>
+			<p>
+				Todo o layout foi feito para ficar parecido com o <a href="https://term.ooo">jogo original</a>, portanto todos os créditos vão para o <a href="https://fserb.com/">Fernando Serboncini</a>.
+			</p>
+			<p>
+				A página é extremamente simples e não coleta nenhum tipo de dado. Nada que você usa aqui fica registrado.
+			</p>
+			<p>
+				Você pode me seguir no <a href="https://twitter.com/feluzan">Twitter</a> ou no <a href="https://instagram.com/feluzan">Instagram</a>.
+			</p>
+			
+			
+			<a href="#" rel="modal:close">Fechar</a>
+		</div>
+
 		
 	</body>
 </html>

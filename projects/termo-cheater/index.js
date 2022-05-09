@@ -2,6 +2,8 @@
 var currentRow = 0;
 var currentCol = 0;
 
+var createdRows = 6;
+
 var possibleGuesses = null;
 
 var canTouch = -1;
@@ -97,6 +99,13 @@ function onKeyPress(e){
             setAllRowWrong(currentRow);
             currentRow++;
             currentCol=0;
+            if(currentRow==createdRows){
+                addRow(createdRows++);
+                showWarningMsg("linha adicionada");
+                // $(".cell").click(onClickCell);
+                // $(".cell").on("selectstart", false);
+                // $(".cell").on("mousedown", false);
+            }
             var row = $(".row[data-row=" + currentRow + "]")[0];
             $(row).removeClass("locked");
             canTouch++;
@@ -180,12 +189,14 @@ function onInputChange(e){
 }
 
 function onClickCell(){
+    
     var parent = $(this).parent();
     if(canTouch < parent.attr("data-row")){
-        console.log("opa");
         return;
     }
-    if(parent.hasClass("locked")) return;
+    if(parent.hasClass("locked")){
+        return;
+    }
     var currentPlace = parseInt($(this).attr("place"));
     if(currentPlace==3){
         $(this).attr("place", 1);
@@ -337,4 +348,11 @@ async function shakeRow(rowN){
     await sleep(750);
     $(row).removeClass("shake");
 
+}
+
+function addRow(dataRow){
+    var div = '<div class="row locked" data-row=' + dataRow + '><div class="cell" index=0 place=0></div><div class="cell" index=1 place=0></div><div class="cell" index=2 place=0></div><div class="cell" index=3 place=0></div><div class="cell" index=4 place=0></div></div>'
+
+    $("#matrix").append(div);
+    $(".row[data-row="+dataRow+"] .cell").click(onClickCell);
 }
