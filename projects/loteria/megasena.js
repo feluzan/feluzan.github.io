@@ -15,7 +15,7 @@ function contarNumerosEmSorteio(){
     for (i=0;i<allMegaSena.length;i++){
         for(j=0;j<6;j++){
             // console.log(allMegaSena[i].dezenas[j],allMegaSena[i].concurso, i, j);
-            numeros[parseInt(allMegaSena[i].dezenas[j])].push(allMegaSena[i].concurso);
+            numeros[parseInt(allMegaSena[i].dezenas[j])].push(allMegaSena[i]);
         }
     }
 }

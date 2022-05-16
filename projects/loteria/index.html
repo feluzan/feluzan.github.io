@@ -1,50 +1,187 @@
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="description" content="Um trapaceador para Termo" />
+    <meta name="keywords" content="" />
 
-	<head>
-		<meta charset="utf-8" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-		<meta name="description" content="Um trapaceador para Termo" />
-		<meta name="keywords" content="" />
+    <title>Mega</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
 
-		<title>Gerador Mega Sena</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="index.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
 
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="words.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="util.js"></script>
+    <script src="megasena.js"></script>
+    <script src="index.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
+  </head>
+
+  <body>
+	<div class="loader-div">
+		<div class="loader-content">
+			<div class="loader-animation">
+				<div class="lds-ellipsis">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+	
+			<div class="loader-text">
+				<div id="app-status">
+
+				</div>
+			</div>
+			
+			
+		</div>
 		
-        <!-- <script src="words.js"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="util.js"></script>
-        <script src="megasena.js"></script>
-		<script src="index.js"></script>
+    </div>
 
-		<!-- jQuery Modal -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <header>
+      <h1>Mega</h1>
+    </header>
 
-	</head>
+    <div class="container">
 
-    <body>
+		<section>
+			<h1>Últimos sorteios</h1>
+			<div id="latests-row"><!-- preenchido via js--></div>
+		</section>
+		
+		<section>
+			<h1>Frequência dos números</h1>
+			<div>
+				<div>Número mais sorteado: <span id="mais-sorteado"></span></div>
+				<div>Número menos sorteado: <span id="menos-sorteado"></span></div>
+			</div>
 
-        <header>
-            This is a header
-        </header>
+			<div>
+				<h3>Escolha um número para mais informações</h3>
+				<div id="tabela-numeros">
+					<div class="row">
+						<div class="item" id="tabela-numero-01" onclick="fillDetails('01')">01</div>
+						<div class="item" id="tabela-numero-02" onclick="fillDetails('02')">02</div>
+						<div class="item" id="tabela-numero-03" onclick="fillDetails('03')">03</div>
+						<div class="item" id="tabela-numero-04" onclick="fillDetails('04')">04</div>
+						<div class="item" id="tabela-numero-05" onclick="fillDetails('05')">05</div>
+						<div class="item" id="tabela-numero-06" onclick="fillDetails('06')">06</div>
+						<div class="item" id="tabela-numero-07" onclick="fillDetails('07')">07</div>
+						<div class="item" id="tabela-numero-08" onclick="fillDetails('08')">08</div>
+						<div class="item" id="tabela-numero-09" onclick="fillDetails('09')">09</div>
+						<div class="item" id="tabela-numero-10" onclick="fillDetails('10')">10</div>
+					</div>
 
-        <div>
+					<div class="row">
+						<div class="item" id="tabela-numero-11" onclick="fillDetails('11')">11</div>
+						<div class="item" id="tabela-numero-12" onclick="fillDetails('12')">12</div>
+						<div class="item" id="tabela-numero-13" onclick="fillDetails('13')">13</div>
+						<div class="item" id="tabela-numero-14" onclick="fillDetails('14')">14</div>
+						<div class="item" id="tabela-numero-15" onclick="fillDetails('15')">15</div>
+						<div class="item" id="tabela-numero-16" onclick="fillDetails('16')">16</div>
+						<div class="item" id="tabela-numero-17" onclick="fillDetails('17')">17</div>
+						<div class="item" id="tabela-numero-18" onclick="fillDetails('18')">18</div>
+						<div class="item" id="tabela-numero-19" onclick="fillDetails('19')">19</div>
+						<div class="item" id="tabela-numero-10" onclick="fillDetails('10')">20</div>
+					</div>
 
-            <div id="app-status"></div>
+					<div class="row">
+						<div class="item" id="tabela-numero-21" onclick="fillDetails('21')">21</div>
+						<div class="item" id="tabela-numero-22" onclick="fillDetails('22')">22</div>
+						<div class="item" id="tabela-numero-23" onclick="fillDetails('23')">23</div>
+						<div class="item" id="tabela-numero-24" onclick="fillDetails('24')">24</div>
+						<div class="item" id="tabela-numero-25" onclick="fillDetails('25')">25</div>
+						<div class="item" id="tabela-numero-26" onclick="fillDetails('26')">26</div>
+						<div class="item" id="tabela-numero-27" onclick="fillDetails('27')">27</div>
+						<div class="item" id="tabela-numero-28" onclick="fillDetails('28')">28</div>
+						<div class="item" id="tabela-numero-29" onclick="fillDetails('29')">29</div>
+						<div class="item" id="tabela-numero-20" onclick="fillDetails('20')">30</div>
+					</div>
 
-            <div id="result-table">
-                <div id="header">
+					<div class="row">
+						<div class="item" id="tabela-numero-31" onclick="fillDetails('31')">31</div>
+						<div class="item" id="tabela-numero-32" onclick="fillDetails('32')">32</div>
+						<div class="item" id="tabela-numero-33" onclick="fillDetails('33')">33</div>
+						<div class="item" id="tabela-numero-34" onclick="fillDetails('34')">34</div>
+						<div class="item" id="tabela-numero-35" onclick="fillDetails('35')">35</div>
+						<div class="item" id="tabela-numero-36" onclick="fillDetails('36')">36</div>
+						<div class="item" id="tabela-numero-37" onclick="fillDetails('37')">37</div>
+						<div class="item" id="tabela-numero-38" onclick="fillDetails('38')">38</div>
+						<div class="item" id="tabela-numero-39" onclick="fillDetails('39')">39</div>
+						<div class="item" id="tabela-numero-30" onclick="fillDetails('30')">40</div>
+					</div>
 
-                </div>
+					<div class="row">
+						<div class="item" id="tabela-numero-41" onclick="fillDetails('41')">41</div>
+						<div class="item" id="tabela-numero-42" onclick="fillDetails('42')">42</div>
+						<div class="item" id="tabela-numero-43" onclick="fillDetails('43')">43</div>
+						<div class="item" id="tabela-numero-44" onclick="fillDetails('44')">44</div>
+						<div class="item" id="tabela-numero-45" onclick="fillDetails('45')">45</div>
+						<div class="item" id="tabela-numero-46" onclick="fillDetails('46')">46</div>
+						<div class="item" id="tabela-numero-47" onclick="fillDetails('47')">47</div>
+						<div class="item" id="tabela-numero-48" onclick="fillDetails('48')">48</div>
+						<div class="item" id="tabela-numero-49" onclick="fillDetails('49')">49</div>
+						<div class="item" id="tabela-numero-40" onclick="fillDetails('40')">50</div>
+					</div>
 
-            </div>
+					<div class="row">
+						<div class="item" id="tabela-numero-51" onclick="fillDetails('51')">51</div>
+						<div class="item" id="tabela-numero-52" onclick="fillDetails('52')">52</div>
+						<div class="item" id="tabela-numero-53" onclick="fillDetails('53')">53</div>
+						<div class="item" id="tabela-numero-54" onclick="fillDetails('54')">54</div>
+						<div class="item" id="tabela-numero-55" onclick="fillDetails('55')">55</div>
+						<div class="item" id="tabela-numero-56" onclick="fillDetails('56')">56</div>
+						<div class="item" id="tabela-numero-57" onclick="fillDetails('57')">57</div>
+						<div class="item" id="tabela-numero-58" onclick="fillDetails('58')">58</div>
+						<div class="item" id="tabela-numero-59" onclick="fillDetails('59')">59</div>
+						<div class="item" id="tabela-numero-50" onclick="fillDetails('50')">60</div>
+					</div>
+				</div>
 
-        </div>
+				<div id="detalhe-numero">
+					<div class="header"></div>
+					<div>Vezes sorteado: <span id="vezes-sorteado"></span></div>
+					<div>Concursos em que foi serteado:</div>
+					<div id="number-latests-row"><!-- preenchido via js--></div>
 
-    </body>
+				</div>
+			</div>
+		</section>
+		
+		
+		
+
+	</div>
+
+
+  </body>
 </html>
