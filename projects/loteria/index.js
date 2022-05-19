@@ -14,33 +14,33 @@ $(document).ready(async function() {
 async function appStart(){
     setAppStatus("Aguarde um instante enquanto os resultados da Mega-Sena são carregados.");
     
-    console.log("Buscando resultados...")
+    console.log(Date.now(),"Buscando resultados...")
     allMegaSena = await getAllFetched();
-    console.log("Pronto!")
+    console.log(Date.now(),"Pronto!")
 
-    console.log("Contando numeros por sorteio...")
+    console.log(Date.now(),"Contando numeros por sorteio...")
     contarNumerosEmSorteio();
-    console.log("Pronto!");
+    console.log(Date.now(),"Pronto!");
 
-    console.log("Contando duplas...")
+    console.log(Date.now(),"Contando duplas...")
     contaDuplasSorteadas();
-    console.log("Pronto!");
+    console.log(Date.now(),"Pronto!");
 
-    console.log("Contando triplas...")
+    console.log(Date.now(),"Contando triplas...")
     contaTriplasSorteadas();
-    console.log("Pronto!");
+    console.log(Date.now(),"Pronto!");
 
-    console.log("Contando quadras...")
+    console.log(Date.now(),"Contando quadras...")
     contaQuadrasSorteadas();
-    console.log("Pronto!");
+    console.log(Date.now(),"Pronto!");
 
-    console.log("Contando quinas...")
+    console.log(Date.now(),"Contando quinas...")
     contaQuinasSorteadas();
-    console.log("Pronto!");
+    console.log(Date.now(),"Pronto!");
 
-    console.log("Contando senas...")
+    console.log(Date.now(),"Contando senas...")
     contaSenasSorteadas();
-    console.log("Pronto!");
+    console.log(Date.now(),"Pronto!");
 
     
 }
@@ -124,15 +124,12 @@ function fillMoreAndLess(){
     $("#menos-sorteado").append(order[59][0]+ " ("+ order[59][1] + " vezes)")
 }
 
-function toggleSelection(obj){
-    $(obj).toggleClass("selected");
-}
+
 function fillDetails(numero){
     $("#tabela-numeros .item").removeClass("selected");
     $("#tabela-numero-" + numero).addClass("selected");
     $("#detalhe-numero").addClass("expanded");
     var item = numeros[parseInt(numero)];
-    console.log(item, item.length);
     $("#vezes-sorteado").text(item.length)
     $("#number-latests-row").text("");
     for(i=0;i<item.length;i++){
