@@ -4,6 +4,11 @@ html {
 body {
   margin: auto;
   max-width: 200mm; }
+  body.toPrint {
+    margin-left: 10px; }
+
+button.hide {
+  display: none; }
 
 .container-default, header .container, #etapa1, #resultado .container, #options .container {
   max-width: 900px;

@@ -89,7 +89,7 @@ function gereVisualDeInformacoesTecnicas(semente) {
 	// conteudo += "<b>appName:</b> " + navigator.appName + "<br/>";
 	// conteudo += "<b>appVersion:</b> " + navigator.appVersion + "<br/>";
 	// conteudo += "<b>userAgent:</b> " + navigator.userAgent + "<br/>";
-	conteudo += "<div><b>Versão do sistema:</b> v220519</div>"
+	conteudo += "<div><b>Versão do sistema:</b> v220525</div>"
     conteudo += "<div><b>Semente utilizada:</b> \"" + semente + "\"</div>";
     
 	return conteudo;
@@ -118,12 +118,14 @@ function onClickSementeManual(){
 }
 
 function generatePDF(){
+	$("body").addClass("toPrint");
+	$("button").addClass("hide");
 	html2canvas(document.body,{
 	onrendered:function(canvas){
  
 	var img=canvas.toDataURL("image/png");
 	var doc = new jsPDF();
-	doc.addImage(img,'PNG',-50,0);
+	doc.addImage(img,'PNG',0,0);
 
 	//generate file name
 	// var fileName = "";
@@ -138,7 +140,8 @@ function generatePDF(){
 	}
  
 	});
- 
+	$("body").removeClass("toPrint");
+	$("button").removeClass("hide");
    }
 
 function doAgain(){

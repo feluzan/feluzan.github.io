@@ -5,7 +5,14 @@ html{
 body{
     margin: auto;
     max-width: 200mm;
+    &.toPrint{
+        margin-left: 10px;
+    }
 
+}
+
+button.hide{
+    display: none;
 }
 
 .container-default{
