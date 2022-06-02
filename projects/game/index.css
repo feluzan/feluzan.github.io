@@ -1,0 +1,15 @@
+.question-wrapper{
+    max-width: 300px;
+    text-align: center;
+}
+.option{
+    width: 90%;
+    text-align: center;
+    padding: 10px 0px;
+    border: 1px solid #000;
+}
+
+.option.selected{
+    background-color: #000;
+    color: #fff;
+}
