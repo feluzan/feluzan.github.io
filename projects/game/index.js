@@ -95,5 +95,5 @@ function iniciaJogo(){
     $("#welcome").addClass("hide-block");
     $("#game").removeClass("hide-block");
     sortAndShowQuestion();
-    startTimer(5);
+    startTimer(10);
 }
