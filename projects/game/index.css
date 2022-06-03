@@ -1,15 +1,50 @@
-.question-wrapper{
-    max-width: 300px;
-    text-align: center;
-}
-.option{
+* {
+  box-sizing: border-box; }
+
+.game-container {
+  max-width: 350px;
+  margin: auto; }
+
+.timer-wrapper .clock {
+  font-size: 40px;
+  padding: 20px;
+  border: 1px solid black; }
+
+.question-wrapper {
+  text-align: center;
+  border: 1px solid green; }
+  .question-wrapper .question-text {
+    font-size: 24px;
+    padding: 20px;
+    font-weight: bold; }
+  .question-wrapper .options-wrapper {
+    width: 100%; }
+  .question-wrapper .option {
     width: 90%;
     text-align: center;
     padding: 10px 0px;
-    border: 1px solid #000;
-}
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    cursor: pointer; }
+    .question-wrapper .option:hover {
+      background-color: #00a2e8; }
+    .question-wrapper .option.selected {
+      background-color: #000;
+      color: #fff; }
+  .question-wrapper .button-wrapper {
+    width: 100%;
+    text-align: center; }
+    .question-wrapper .button-wrapper button {
+      width: 100%;
+      background-color: orange;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      cursor: pointer; }
 
-.option.selected{
-    background-color: #000;
-    color: #fff;
-}
+.hide-block {
+  display: none; }
+
+/*# sourceMappingURL=index.css.map */
