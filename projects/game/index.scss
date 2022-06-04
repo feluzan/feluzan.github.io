@@ -1,32 +1,108 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body{
+    background-image: url('img/background.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-container{
+    background-image: url('img/background.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    width: 100%;
+    min-height: 100vh;
+    
+    @media screen and (min-width:520px) {
+        width: 350px;
+        height: 800px;
+        margin: auto;
+    }
+
+    padding-bottom: 50px;
+
+}
+
+.header-container{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+    img{
+        max-width: 100%;
+    }
+}
 
 .game-container{
     max-width: 350px;
-    margin: auto;
+    margin-top: -50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .timer-wrapper{
     .clock{
-        font-size: 40px;
-        padding: 20px;
-        border: 1px solid black;
+        background-image: url('img/clock.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 180px;
+        height: 180px;
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 36px;
+        font-family: 'Orbitron', sans-serif;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
 .question-wrapper{
-    // max-width: 300px;
+    font-family: 'Kdam Thmor Pro', sans-serif;
     text-align: center;
     
 
-    border: 1px solid green;
+    border: 3px solid #000;
+    border-radius: 10px;
+
+    .question-mark{
+        position: absolute;
+        width: 130px;
+        margin-left: 90px;
+        margin-top: -20px;
+
+    }
 
     .question-text{
+        display: flex;
+        // justify-content: ;
+        align-items: center;
+        min-height: 80px;
+        
         font-size: 24px;
-        padding: 20px;
+        padding: 5px 30px 5px 5px;
+
         font-weight: bold;
+        border-bottom: 2px solid #000;
+        margin-bottom: 20px;
+        border-radius: 7px 7px 0px 0px;
+
+        background-color: #437db2;
     }
 
     .options-wrapper{
@@ -39,6 +115,7 @@
         text-align: center;
         padding: 10px 0px;
         border: 2px solid #000;
+        background-color: #fff;
         border-radius: 10px;
         margin: auto;
         margin-bottom: 20px;
@@ -50,6 +127,12 @@
             background-color: #000;
             color: #fff;
         }
+
+        min-height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
     }
 
     .button-wrapper{
@@ -67,6 +150,46 @@
         
     }
 
+}
+
+.welcome-container,
+.finish-container{
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+    p{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .start{
+        margin-top: 50px;
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+        img{
+            max-width: 100%;
+        }
+    }
+
+    .end-game{
+        width: 300px;
+        margin-top: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
+    }
+    .play-again{
+        margin-top: 50px;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        img{
+            max-width: 100%;
+        }
+    }
 }
 
 .hide-block{

@@ -9,19 +9,11 @@
 		<meta name="description" content="Um trapaceador para Termo" />
 		<meta name="keywords" content="" />
 
-		<title>Mega</title>
-		<!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-			rel="stylesheet"
-		/> -->
+		<title>Quiz Nettie Stevens</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Orbitron&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="index.css" />
 
 		<!-- <script
@@ -44,53 +36,63 @@
 	</head>
 
 	<body>
-		<div class="welcome-container" id="welcome">
 
-			<div>
-				<p>Bem vindo ao jogo sobre Nettie Stevens.</p>
-				<p>Vamos testar os seus conhecimentos!</p>
-				<p>Acerte o máximo de perguntas que puder em 30 segundos.</p>
-				<p>Para cada acerto você ganha 2 pontos. Para cada erro você perde 1 ponto.</p>
-				<button onclick=iniciaJogo()>Iniciar Jogo</button>
+        <div class="main-container">
+            <div class="header-container" id="header">
+                <img src="img/header.png" />
+            </div>
+            <div class="welcome-container" id="welcome">
 
+                <div>
+                    <p>Bem vindo ao jogo de perguntas Nettie Stevens.</p>
+                    <p>Responda o máximo de perguntas que puder em <b>60 segundos</b>, teste seus conhecimentos e acumule pontos. Vamos lá?</p>
+                    <div class="start" onclick=iniciaJogo()><img src="img/start.png" /></div>
+    
+    
+                </div>
+    
+            </div>
+    
+            <div class="game-container hide-block" id="game">
+    
+                <div class="timer-wrapper">
+    
+                    <div class="clock" id="clock">
+                        
+                    </div>
+                </div>
+    
+    
+                <div class="question-wrapper">
+                    <img src="img/questionMark.png" class="question-mark" />
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options-wrapper">
+                            <div class="option" optionID=1 onclick=selectOption(1);enviarResposta()></div>
+                            <div class="option" optionID=2 onclick=selectOption(2);enviarResposta()></div>
+                            <div class="option" optionID=3 onclick=selectOption(3);enviarResposta()></div>
+                            <div class="option" optionID=4 onclick=selectOption(4);enviarResposta()></div>
+                            <div class="option" optionID=5 onclick=selectOption(5);enviarResposta()></div>
+                    </div>
+    
+                    <!-- <div class="button-wrapper"><button id="botao-responder" onclick=enviarResposta()>RESPONDER</button></div> -->
+                </div>
+                
+    
+            </div>
+    
+            <div class="finish-container hide-block" id="finish">
+                <div>
+                    <img class="end-game" src="img/endGame.png" />
+                    <p>Você respondeu <b><span id="nQuestoes"></span> perguntas</b> e marcou <b><span id="pontos"></span> pontos</b>.</p>
+                </div>
+                <div class="play-again">
+                    <a href="."><img src="img/playAgain.png" /></a>
+                </div>
+            </div>
 
-			</div>
+        </div>
 
-		</div>
-
-		<div class="game-container hide-block" id="game">
-
-			<div class="timer-wrapper">
-
-				<div class="clock" id="clock">
-					
-				</div>
-			</div>
-
-
-			<div class="question-wrapper">
-				<div class="question-text" id="question-text"></div>
-				<div class="options-wrapper">
-						<div class="option" optionID=1 onclick=selectOption(1)></div>
-						<div class="option" optionID=2 onclick=selectOption(2)></div>
-						<div class="option" optionID=3 onclick=selectOption(3)></div>
-						<div class="option" optionID=4 onclick=selectOption(4)></div>
-				</div>
-
-				<div class="button-wrapper"><button id="botao-responder" onclick=enviarResposta()>RESPONDER</button></div>
-			</div>
-			
-
-		</div>
-
-		<div class="finish-container hide-block" id="finish">
-			<div>
-				<p>Fim do jogo!</p>
-				<p>Você fez <span id="pontos"></span> pontos e respondeu <span id="nQuestoes"></span> perguntas.</p>
-				<p>Você usou <span id="tempo"></span> segundos.</p>
-				<a href=".">Jogar novamente</a>
-			</div>
-		</div>
+		
 
 		
 
