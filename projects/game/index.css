@@ -94,8 +94,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px; }
-    .question-wrapper .option:hover {
-      background-color: #00a2e8; }
+    @media (min-width: 530px) {
+      .question-wrapper .option:hover {
+        background-color: #00a2e8; } }
     .question-wrapper .option.selected {
       background-color: #000;
       color: #fff; }

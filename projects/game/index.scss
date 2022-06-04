@@ -121,7 +121,10 @@ body{
         margin-bottom: 20px;
         cursor: pointer;
         &:hover{
-            background-color: rgb(0,162,232);
+            @media  (min-width: 530px) {
+                background-color: rgb(0,162,232);    
+            }
+            
         }
         &.selected{
             background-color: #000;
