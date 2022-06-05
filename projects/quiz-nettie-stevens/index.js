@@ -84,6 +84,9 @@ function finalizaJogo(){
     $("#finish").removeClass("hide-block");
     $("#pontos").text(pontuacao);
     $("#nQuestoes").text(respondidas);
+    if(pontuacao==30){
+        $("#allCorrect").removeClass("hide-block");
+    }
 }
 
 function iniciaJogo(){
