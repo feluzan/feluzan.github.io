@@ -39,8 +39,8 @@ function fillQuestionWrapper(question){
     enableButton(false);
     selectOption(-1);
     $("#question-text").text(question.text);
-    currentCorrect = parseInt(Math.random()*10)%5 + 1;
-    for(i=1,y=0;i<=5;i++){
+    currentCorrect = parseInt(Math.random()*10)%4 + 1;
+    for(i=1,y=0;i<=4;i++){
         if (i==currentCorrect){
             $(".option[optionID="+i+"]").text(question.correctAnswer);
             continue;
