@@ -32,7 +32,7 @@ async function getLatest(tipoLoteria = "megasena"){
     return ret;
 }
 
-async function getAll(tipoLoteria = "meg-sena"){
+async function getAll(tipoLoteria = "megasena"){
     var ret = await makeGetRequest('https://loteriascaixa-api.herokuapp.com/api/' + tipoLoteria);
 
     return ret;

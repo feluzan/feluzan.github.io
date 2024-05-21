@@ -84,6 +84,9 @@ header{
         &.expanded{
             height: 250px;
             transition: height 0.5s;
+            &.auto{
+              height: auto;
+            }
         }
         .info-wrapper{
             background-color: $orange;
@@ -92,6 +95,25 @@ header{
             margin-bottom: 5px;
             .info-title{
                 font-size: 10px;
+            }
+            .info-row{
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              .number-item{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $green;
+                color: #FFFFFF;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+            .number-text{
+
+            }
+              
             }
         }
     }

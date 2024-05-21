@@ -8,6 +8,8 @@ $(document).ready(async function() {
     closeLoaderDiv();
     showMore();
     fillMoreAndLess();
+    rankingContentGenerator(numeros, "ranking-numeros");
+    rankingContentGenerator(duplas, "ranking-duplas");
         
 });
 
@@ -53,8 +55,9 @@ function closeLoaderDiv(){
     $(".loader-div").hide();
 }
 
-function expandMore(element){
+function expandMore(element, auto=false){
     $(element).next().toggleClass("expanded");
+    if(auto) $(element).next().toggleClass("auto");
 }
 
 function cardGenerator(info){
@@ -64,7 +67,7 @@ function cardGenerator(info){
     var sena = info["premiacoes"][0];
     var quina = info["premiacoes"][1];
     var quadra = info["premiacoes"][2];
-    var acumulado = info["acumuladaProxConcurso"];
+    var acumulado = info["valorAcumuladoProximoConcurso"];
 
     var ret = '<div class="main-card">';
     ret = ret + '<div class="card-header">';
@@ -86,15 +89,15 @@ function cardGenerator(info){
     ret = ret + '</div>';
     ret = ret + '<div class="info-wrapper">';
     ret = ret + '<div class="info-title">Acertos da Sena</div>';
-    ret = ret + '<div class="info-value">' + sena["vencedores"] + ' (' + sena["premio"] + ')</div>';
+    ret = ret + '<div class="info-value">' + sena["ganhadores"] + ' (' + sena["valorPremio"] + ')</div>';
     ret = ret + '</div>';
     ret = ret + '<div class="info-wrapper">';
     ret = ret + '<div class="info-title">Acertos da Quina</div>';
-    ret = ret + '<div class="info-value">' + quina["vencedores"] + ' (' + quina["premio"] + ')</div>';
+    ret = ret + '<div class="info-value">' + quina["ganhadores"] + ' (' + quina["valorPremio"] + ')</div>';
     ret = ret + '</div>';
     ret = ret + '<div class="info-wrapper">';
     ret = ret + '<div class="info-title">Acertos da Quadra</div>';
-    ret = ret + '<div class="info-value">' + quadra["vencedores"] + ' (' + quadra["premio"] + ')</div>';
+    ret = ret + '<div class="info-value">' + quadra["ganhadores"] + ' (' + quadra["valorPremio"] + ')</div>';
     ret = ret + '</div>';
     ret = ret + '<div class="info-wrapper">';
     ret = ret + '<div class="info-title">Próxima Premiação</div>';
@@ -105,6 +108,22 @@ function cardGenerator(info){
     ret = ret + '</div>';
 
     return ret;
+
+}
+
+function rankingContentGenerator(array, elementId){
+    var order = vezesSorteado(array);
+    var ret = '';
+    for(var i = 0; i < order.length; i++){
+        var numeros = order[i][0].split(';');
+        ret = ret + '<div class="info-row">';
+        for(var j=0;j<numeros.length;j++){
+            ret = ret + '<div class="number-item">' + numeros[j] + '</div>';
+        }
+        ret = ret + '<div class="number-text">' + order[i][1] + '</div>';
+        ret = ret + '</div>';
+    }
+    $("#"+elementId).append(ret);
 
 }
 
