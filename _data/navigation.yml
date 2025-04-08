@@ -2,9 +2,9 @@
 main:
   - title: "Portfólio"
     url: "/portfolio/"
-  - title: "Academia"
+  - title: "Education"
     url: "/education/"
-  - title: "Experiência"
+  - title: "Experience"
     url: "/experience/"
   # - title: "Outros"
     # url: "/others/"
