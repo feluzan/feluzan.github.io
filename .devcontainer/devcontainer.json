@@ -1,0 +1,21 @@
+{
+    "name": "feluzan.github.io",
+    "image": "mcr.microsoft.com/devcontainers/jekyll",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "Cardinal90.multi-cursor-case-preserve", //case preserve for multiple cursors
+				"Gruntfuggly.todo-tree", //TODO list
+				"maptz.regionfolder",// region folder
+                "ms-azuretools.vscode-docker",
+                "oderwat.indent-rainbow",
+                "dbaeumer.vscode-eslint",
+                "github.copilot"
+                ]
+        }
+    }
+    // "postCreateCommand": "chmod +x /workspace/WPIfesGovBR/.devcontainer/setup.sh && /workspace/WPIfesGovBR/.devcontainer/setup.sh"
+}
