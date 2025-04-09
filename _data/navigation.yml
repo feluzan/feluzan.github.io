@@ -1,18 +1,8 @@
 # main links
 main:
-  - title: "Portfólio"
-    url: "/portfolio/"
-  - title: "Academia"
+  - title: "Education"
     url: "/education/"
-  - title: "Experiência"
+  - title: "Experience"
     url: "/experience/"
-  # - title: "Outros"
-    # url: "/others/"
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "Skills"
+    url: /skills/

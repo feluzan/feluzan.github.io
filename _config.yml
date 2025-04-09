@@ -15,7 +15,7 @@
 minimal_mistakes_skin    : "dark" # ""default", air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "pt-BR"
+locale                   : "en"
 title                    : "Félix Zanetti."
 title_separator          : "-"
 subtitle                 : "" # site tagline that appears below site title in masthead
@@ -99,8 +99,8 @@ analytics:
 author:
   name             : "Félix Zanetti"
   avatar           : "/assets/images/bio-photo.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Desenvolvedor Frontend"
-  location         : "Vitória/ES/Brasil"
+  bio              : "Backend/Fullstack Developer"
+  location         : "Vitoria/ES/Brazil"
   email            : "feluzan@gmail.com"
   links:
     # - label: "Email"
@@ -109,9 +109,6 @@ author:
     # - label: "Website"
     #   icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/feluzan"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/feluzan"
