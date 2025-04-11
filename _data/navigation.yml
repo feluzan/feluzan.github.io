@@ -6,3 +6,5 @@ main:
     url: "/experience/"
   - title: "Skills"
     url: /skills/
+  - title: "Resume"
+    url: /resume/
