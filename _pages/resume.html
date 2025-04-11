@@ -1,0 +1,32 @@
+---
+layout: single
+title: "Resume"
+permalink: /resume/
+author_profile: true
+---
+
+<div>
+  <!-- <h1>Resume</h1> -->
+  
+  <h2>Professional Experience</h2>
+{% assign experiences = site.experience | sort: 'ordem' | reverse %}
+{% for experience in experiences %}
+    <div>
+        <h3>{{ experience.title }}</h3>
+        <p><em>{{ experience.excerpt }}</em> ({{ experience.period }})</p>
+        <p>{{ experience.content | strip_html | truncatewords: 50 }}<a href="{{ experience.url }}">read more</a></p>
+        
+    </div>
+{% endfor %}
+  
+  <h2>Education</h2>
+  {% for education in site.education %}
+    <h3>{{ education.title }}</h3>
+    <p>{{ education.content | strip_html | truncatewords: 50 }}<a href="{{ education.url }}">read more</a></p>
+  {% endfor %}
+  
+  <h2>Skills</h2>
+    <p>
+        <a href="/skills/">Click here to learn about my work preferences and skills</a>
+    </p>
+</div>
