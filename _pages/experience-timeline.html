@@ -1,0 +1,60 @@
+---
+layout: single
+author_profile: true
+title: "Experience Timeline"
+permalink: /experience-timeline/
+---
+
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/timeline.css">
+
+<section class="timeline-wrapper">
+  <!-- <h1 class="timeline-title">Professional Experience</h1> -->
+
+  <div class="timeline">
+    {% assign sorted_experiences = site.experience | sort: "ordem" | reverse %}
+    {% for exp in sorted_experiences %}
+      {% assign animation = forloop.index0 | modulo: 2 %}
+      <div id="year-{{ exp.period | replace: ' ', '-' }}" 
+           class="timeline-item {% if animation == 0 %}left{% else %}right{% endif %}" 
+           data-aos="{% if animation == 0 %}fade-right{% else %}fade-left{% endif %}">
+        <div class="timeline-content">
+          <img src="{{ exp.header.teaser }}" alt="{{ exp.title }} logo" class="timeline-logo">
+          <h2>{{ exp.title }}</h2>
+          <p class="period">{{ exp.period }}</p>
+          <p>{{ exp.excerpt }}</p>
+          <a href="{{ exp.url }}" class="read-more">Read more →</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" title="Go to top">↑</button>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+  });
+
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  window.onscroll = () => {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollToTopBtn.classList.add("show");
+    } else {
+      scrollToTopBtn.classList.remove("show");
+    }
+  };
+
+  scrollToTopBtn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
