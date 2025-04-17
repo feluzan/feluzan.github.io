@@ -7,6 +7,7 @@ author_profile: true
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/timeline.css">
+<link rel="stylesheet" href="/assets/css/skill_highlight.css">
 
 
 <div>
@@ -69,10 +70,15 @@ author_profile: true
 		</div>
 	  </section>
 	
-	<h2>Skills</h2>
-	  <p>
-		  <a href="/skills/">Click here to read about my work preferences and skills</a>
-	  </p>
+	<!-- <h2>Skill Highlight</h2> -->
+	<section id="skill-highlight" class="skill-highlight-section">
+		<h2>Skill Highlight</h2>
+		<div class="skill-box">
+		  <div class="skill-name" id="skillName">Loading...</div>
+		  <div class="skill-category" id="skillCategory">Please wait</div>
+		  <a href="/skills/" class="view-all-skills">View All Skills</a>
+		</div>
+	  </section>
   </div>
 
 
@@ -102,6 +108,52 @@ author_profile: true
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 </script>
+
+<script>
+	const skills = [
+	  { name: "Java", category: "Languages & Frameworks" },
+	  { name: "Spring Boot", category: "Languages & Frameworks" },
+	  { name: "React", category: "Languages & Frameworks" },
+	  { name: "TypeScript", category: "Languages & Frameworks" },
+	  { name: "Python", category: "Languages & Frameworks" },
+	  { name: "Django", category: "Languages & Frameworks" },
+	  { name: "Docker", category: "Databases & Tools" },
+	  { name: "PostgreSQL", category: "Databases & Tools" },
+	  { name: "Git", category: "Databases & Tools" },
+	  { name: "REST APIs", category: "Databases & Tools" },
+	  { name: "TDD", category: "Dev Practices" },
+	  { name: "CI/CD", category: "Dev Practices" },
+	  { name: "WordPress as CMS", category: "Certifications" },
+	  { name: "ITIL Foundation v3", category: "Certifications" },
+	];
+  
+	let index = 0;
+  
+	function updateSkill() {
+	  const skill = skills[index];
+	  document.getElementById("skillName").textContent = skill.name;
+	  document.getElementById("skillCategory").textContent = `${skill.category}`;
+  
+	  index = (index + 1) % skills.length;
+	}
+  
+	// Inicializa com efeito de fade
+	setInterval(() => {
+	  const nameEl = document.getElementById("skillName");
+	  const catEl = document.getElementById("skillCategory");
+  
+	  nameEl.classList.add("fade-out");
+	  catEl.classList.add("fade-out");
+  
+	  setTimeout(() => {
+		updateSkill();
+		nameEl.classList.remove("fade-out");
+		catEl.classList.remove("fade-out");
+	  }, 400);
+	}, 3000);
+  
+	window.addEventListener("DOMContentLoaded", updateSkill);
+  </script>
 
 
 
