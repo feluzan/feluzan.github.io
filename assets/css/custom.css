@@ -1,0 +1,17 @@
+.sidebar-custom-box{
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: transform 0.3s ease;
+    width: fit-content;
+}
+
+.sidebar-custom-box h3{
+    margin: 0px!important;
+}
+.sidebar-custom-box p:last-child{
+    margin-bottom: 0px!important;
+}
