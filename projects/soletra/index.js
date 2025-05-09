@@ -5,7 +5,6 @@ $(document).ready(async function() {
     await appStart();
     closeLoaderDiv();
     atualizarCirculos();
-    console.log(dicionario); // Agora é um array de palavras
 });
 
 async function appStart(){
