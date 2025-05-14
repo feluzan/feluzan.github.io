@@ -21,7 +21,10 @@ function closeLoaderDiv(){
 }
 
 async function carregarDicionario() {
-    const response = await fetch('https://raw.githubusercontent.com/pythonprobr/palavras/master/palavras.txt');
+    // const response = await fetch('https://raw.githubusercontent.com/pythonprobr/palavras/master/palavras.txt');
+    // const response = await fetch('https://raw.githubusercontent.com/kkrypt0nn/wordlists/refs/heads/main/wordlists/languages/portuguese.txt');
+    const response = await fetch('https://raw.githubusercontent.com/fserb/pt-br/refs/heads/master/dicio');
+    
     const texto = await response.text();
     const palavras = texto
       .split('\n')
@@ -65,6 +68,30 @@ function atualizarCirculos() {
     }
 }
 
+// function buscarPalavras() {
+//     const letrasBrutas = document.getElementById('letras').value.toLowerCase().trim();
+//     if (letrasBrutas.length !== 7) {
+//         alert("Digite exatamente 7 letras.");
+//         return;
+//     }
+
+//     const letras = letrasBrutas.split('');
+//     const letraPrincipal = letras[0];
+
+//     const palavrasValidas = dicionario.filter(palavra => {
+//         const p = palavra.toLowerCase();
+//         return (
+//         p.length >= 4 &&
+//         p.includes(letraPrincipal) &&
+//         [...p].every(c => letras.includes(c))
+//         );
+//     }).sort((a, b) => a.length - b.length);
+
+//     const resultado = palavrasValidas.sort().join('<br>') || 'Nenhuma palavra encontrada.';
+//     document.getElementById('resultado').innerHTML =
+//         `<h3>${palavrasValidas.length} palavra(s) encontrada(s):</h3><p>${resultado}</p>`;
+// }
+
 function buscarPalavras() {
     const letrasBrutas = document.getElementById('letras').value.toLowerCase().trim();
     if (letrasBrutas.length !== 7) {
@@ -78,13 +105,46 @@ function buscarPalavras() {
     const palavrasValidas = dicionario.filter(palavra => {
         const p = palavra.toLowerCase();
         return (
-        p.length >= 4 &&
-        p[0] === letraPrincipal &&
-        [...p].every(c => letras.includes(c))
+            p.length >= 4 &&
+            p.includes(letraPrincipal) &&
+            [...p].every(c => letras.includes(c))
         );
-    }).sort((a, b) => a.localeCompare(b) || a.length - b.length);
+    }).sort((a, b) => a.length - b.length);
 
-    const resultado = palavrasValidas.sort().join('<br>') || 'Nenhuma palavra encontrada.';
-    document.getElementById('resultado').innerHTML =
-        `<h3>${palavrasValidas.length} palavra(s) encontrada(s):</h3><p>${resultado}</p>`;
+    if (palavrasValidas.length === 0) {
+        document.getElementById('resultado').innerHTML = 'Nenhuma palavra encontrada.';
+        return;
+    }
+
+    // Agrupar palavras por tamanho
+    const palavrasPorTamanho = palavrasValidas.reduce((acc, palavra) => {
+        const tamanho = palavra.length;
+        if (!acc[tamanho]) acc[tamanho] = [];
+        acc[tamanho].push(palavra);
+        return acc;
+    }, {});
+
+    // Criar botões para cada tamanho de palavra
+    const botoes = Object.keys(palavrasPorTamanho).map(tamanho => {
+        return `<button class="inline-button" onclick="filtrarPorTamanho(${tamanho})">${tamanho} letras</button>`;
+    }).join(' ');
+
+    // Exibir todas as palavras inicialmente
+    const todasPalavras = palavrasValidas.join('<br>');
+
+    document.getElementById('resultado').innerHTML = `
+        <div><span>Filtros: </span>${botoes}
+        <button class="inline-button" onclick="buscarPalavras()">Todas</button></div>
+        <h3>${palavrasValidas.length} palavra(s) encontrada(s):</h3>
+        <p id="lista-palavras">${todasPalavras}</p>
+    `;
+
+    // Salvar as palavras agrupadas globalmente para uso nos botões
+    window.palavrasPorTamanho = palavrasPorTamanho;
+}
+
+function filtrarPorTamanho(tamanho) {
+    const palavras = window.palavrasPorTamanho[tamanho] || [];
+    const lista = palavras.join('<br>') || 'Nenhuma palavra encontrada.';
+    document.getElementById('lista-palavras').innerHTML = lista;
 }
