@@ -1,0 +1,67 @@
+:root {
+    --main-background-color: rgb(255, 0, 0); 
+    
+    --key-avaliable-background: #3d3d66;
+    --key-avaliable-opacity: 1;
+
+    --key-wrong-backgroung: #1e293b;
+    --key-wrong-opacity: .5;
+
+    --key-right-backgroun: #22c55e!important;
+    --key-right-opacity: 1;
+}
+
+
+.keyboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    bottom: 10px;
+}
+.keyboard-wrapper .upper-row,
+.keyboard-wrapper .middle-row,
+.keyboard-wrapper .bottom-row {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+.keyboard-wrapper .upper-row {
+padding-right: 20px;
+}
+
+.keyboard-wrapper .key {
+    width: 27px;
+    height: 57px;
+    touch-action: manipulation;
+    outline: none;
+    background-color: #4C4347;
+    grid-column: span 3;
+    display: flex;
+    font-size: 1em;
+    line-height: 1em;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8%;
+    font-weight: 500;
+    font-family: "Mitr", sans-serif;
+    cursor: pointer;
+    border: none;
+    color: #FAFAFF;
+    margin-right: 5px;
+}
+.keyboard-wrapper .key.enter {
+width: 75px;
+margin-left: 10px;
+}
+.keyboard-wrapper .key.backspace {
+margin-left: 10px;
+}
+.keyboard-wrapper .key img {
+width: 1em;
+}
