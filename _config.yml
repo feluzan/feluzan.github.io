@@ -99,8 +99,8 @@ analytics:
 author:
   name             : "Félix Zanetti"
   avatar           : "/assets/images/MFmo2-139.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Backend / Full-Stack Engineer with 10+ years building mission-critical systems, APIs, and internal platforms used at scale. Based in Brazil and open to remote international roles."
-  location         : "Vitoria/ES/Brazil"
+  bio              : "Backend / Full-Stack Engineer with 10+ years of experience building business-critical systems, APIs, and internal platforms at scale. Based in Brazil and open to remote international roles."
+  location         : "Vitoria, ES, Brazil"
   email            : "feluzan@gmail.com"
   links:
     # - label: "Email"

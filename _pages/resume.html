@@ -5,28 +5,69 @@ permalink: /resume/
 author_profile: true
 ---
 
-<div>
-  <!-- <h1>Resume</h1> -->
-  
+<section>
+  <h2>Profile</h2>
+  <p>
+    Backend / Full-Stack Engineer with 10+ years of experience building and maintaining business-critical systems,
+    APIs, and internal platforms. My background combines backend development, systems integration, legacy
+    modernization, and hands-on support for production environments.
+  </p>
+  <p>
+    I have delivered software for public institutions, research environments, and recognized digital brands,
+    with most of my recent work centered on Java, Spring Boot, PHP, JavaScript/TypeScript, SQL, and web platforms.
+    I am based in Brazil and open to remote international software engineering roles.
+  </p>
+</section>
+
+<section>
+  <h2>Highlights</h2>
+  <ul>
+    <li>10+ years of software delivery across backend, frontend, integrations, and operational support</li>
+    <li>Contributed to systems used across 27 campuses serving 40,000+ students</li>
+    <li>Helped enable the issuance of 5,000+ valid digital diplomas through a government platform integration by March 2025</li>
+    <li>Designed and implemented a student aid management system supporting around 1,000 subsidized meals per day</li>
+    <li>Delivered projects for organizations including MIT Technology Review, Fiocruz, Deloitte, FGV, and Globo Filmes</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Core Technologies</h2>
+  <ul>
+    <li><strong>Backend:</strong> Java, Spring Boot, JPA, PHP, Laravel, Python, Django</li>
+    <li><strong>Frontend:</strong> JavaScript, TypeScript, Angular, React, HTML, CSS</li>
+    <li><strong>Data and infrastructure:</strong> PostgreSQL, MySQL, SQL Server, Docker, Linux, REST APIs</li>
+    <li><strong>Workflow and delivery:</strong> Git, GitLab, CI/CD, Agile delivery, production support</li>
+  </ul>
+</section>
+
+<section>
   <h2>Professional Experience</h2>
-{% assign experiences = site.experience | sort: 'ordem' | reverse %}
-{% for experience in experiences %}
+  {% assign experiences = site.experience | sort: 'ordem' | reverse %}
+  {% for experience in experiences %}
     <div>
-        <h3>{{ experience.title }}</h3>
-        <p><em>{{ experience.excerpt }}</em> ({{ experience.period }})</p>
-        <p>{{ experience.content | strip_html | truncatewords: 50 }}<a href="{{ experience.url }}">read more</a></p>
-        
+      <h3>{{ experience.title }}</h3>
+      <p><em>{{ experience.excerpt }}</em> | {{ experience.period }}</p>
+      <p>{{ experience.content | strip_html | truncatewords: 42 }} <a href="{{ experience.url }}">Read more</a></p>
     </div>
-{% endfor %}
-  
-  <h2>Education</h2>
-  {% for education in site.education %}
-    <h3>{{ education.title }}</h3>
-    <p>{{ education.content | strip_html | truncatewords: 50 }}<a href="{{ education.url }}">read more</a></p>
   {% endfor %}
-  
-  <h2>Skills</h2>
-    <p>
-        <a href="/skills/">Click here to read about my work preferences and skills</a>
-    </p>
-</div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  {% assign education_items = site.education | sort: 'ordem' | reverse %}
+  {% for education in education_items %}
+    <div>
+      <h3>{{ education.title }}</h3>
+      <p><em>{{ education.excerpt }}</em></p>
+      <p>{{ education.content | strip_html | truncatewords: 36 }} <a href="{{ education.url }}">Read more</a></p>
+    </div>
+  {% endfor %}
+</section>
+
+<section>
+  <h2>More</h2>
+  <p>
+    For a broader overview of my technical strengths, see the <a href="/skills/">Skills</a> page.
+    For selected project work and public-facing deliveries, visit the <a href="/portfolio/">Portfolio</a>.
+  </p>
+</section>
