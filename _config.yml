@@ -120,7 +120,7 @@ author:
       url: "https://www.linkedin.com/in/felix-zanetti/"
     - label: "Resume"
       icon: "far fa-fw fa-file-pdf"
-      url: "assets/files/resume.pdf"
+      url: "/assets/files/resume.pdf"
 
 # Site Footer
 footer:
