@@ -13,7 +13,8 @@
                 "ms-azuretools.vscode-docker",
                 "oderwat.indent-rainbow",
                 "dbaeumer.vscode-eslint",
-                "github.copilot"
+                "github.copilot",
+                "openai.chatgpt"
                 ]
         }
     }

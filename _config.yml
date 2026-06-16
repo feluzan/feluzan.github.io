@@ -99,7 +99,7 @@ analytics:
 author:
   name             : "Félix Zanetti"
   avatar           : "/assets/images/MFmo2-139.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Backend/Fullstack Developer"
+  bio              : "Backend / Full-Stack Engineer with 10+ years building mission-critical systems, APIs, and internal platforms used at scale. Based in Brazil and open to remote international roles."
   location         : "Vitoria/ES/Brazil"
   email            : "feluzan@gmail.com"
   links:
@@ -112,15 +112,15 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/feluzan"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/feluzan"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/felix-zanetti/"
     - label: "Resume"
       icon: "far fa-fw fa-file-pdf"
       url: "/assets/files/resume.pdf"
+    - label: "Open to Remote Roles"
+      icon: "fas fa-fw fa-globe"
+      url: "mailto:feluzan@gmail.com?subject=Remote%20Opportunity"
 
 # Site Footer
 footer:
