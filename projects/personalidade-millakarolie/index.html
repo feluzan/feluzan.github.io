@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		/>
+		<meta name="description" content="Um quiz de personalidade para casamentos" />
+		<meta name="keywords" content="" />
+
+		<title>Personalidade Milla Karolie</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="index.css" />
+
+		<!-- <script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script> -->
+
+		<script src="jquery.js"></script>
+
+		<script src="index.js"></script>
+		<script src="perguntas.js"></script>
+
+		<!-- jQuery Modal -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+		/> -->
+	</head>
+
+	<body>
+
+        <div class="main-container">
+            <div class="header-container" id="header">
+                <div class="brand-mark">
+                    <img src="img/id-dourada.PNG" alt="Identidade Milla Karolie" />
+                </div>
+                <p class="eyebrow">Quiz de Personalidade</p>
+                <h1>Milla Karolie</h1>
+            </div>
+            <div class="welcome-container" id="welcome">
+
+                <div>
+                    <p class="intro-lead">Descubra qual atmosfera combina mais com o seu estilo e com a essencia do seu casamento.</p>
+                    <div class="name-field">
+                        <label for="nome-participante">Seu nome</label>
+                        <input
+                            type="text"
+                            id="nome-participante"
+                            name="nome-participante"
+                            placeholder="Digite seu nome"
+                        />
+                    </div>
+                    <div class="start" onclick=iniciaJogo()><img src="img/start.png" /></div>
+    
+    
+                </div>
+    
+            </div>
+    
+            <div class="game-container hide-block" id="game">
+                <div class="question-wrapper">
+                    <img src="img/questionMark.png" class="question-mark" />
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options-wrapper">
+                            <div class="option" optionID="A" onclick="selectOption('A');enviarResposta()"></div>
+                            <div class="option" optionID="B" onclick="selectOption('B');enviarResposta()"></div>
+                            <div class="option" optionID="C" onclick="selectOption('C');enviarResposta()"></div>
+                    </div>
+                </div>
+                
+    
+            </div>
+    
+            <div class="finish-container hide-block" id="finish">
+                <div>
+                    <div class="result-brand">
+                        <img class="end-game" src="img/id-branca.PNG" alt="Identidade Milla Karolie" />
+                    </div>
+                    <p>Seu resultado foi:</p>
+                    <p class="result-title"><b><span id="resultado-titulo"></span></b></p>
+                    <div id="resultado-descricao" class="result-description"></div>
+                    <div id="tie-breaker" class="tie-breaker hide-block">
+                        <p class="tie-breaker-title">Qual dessas personalidades combina mais com voce?</p>
+                        <div id="tie-breaker-options" class="tie-breaker-options"></div>
+                    </div>
+                    <p class="result-score" id="resultado-contagem"></p>
+                </div>
+                <div class="submit-answers">
+                    <a id="whatsapp-link" class="submit-button" href="#" target="_blank" rel="noopener noreferrer" onclick="enviarParaWhatsapp(event)">Enviar minhas respostas</a>
+                </div>
+            </div>
+
+        </div>
+
+		
+
+		
+
+
+
+	</body>
