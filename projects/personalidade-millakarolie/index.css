@@ -85,6 +85,7 @@ a {
 .brand-mark img {
   display: block;
   width: 100%;
+  max-width: 100px;
 }
 
 .eyebrow {

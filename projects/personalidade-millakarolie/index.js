@@ -133,7 +133,7 @@ function atualizarLinkWhatsapp() {
 
 	if (texto) {
 		href =
-			"https://wa.me/5527992259404?text=" +
+			"https://wa.me/5527992337626?text=" +
 			encodeURIComponent(texto);
 	}
 
@@ -229,6 +229,7 @@ function iniciaJogo() {
 	};
 
 	$("#welcome").addClass("hide-block");
+	$(".intro-only-copy").addClass("hide-block");
 	$("#game").removeClass("hide-block");
 	sortAndShowQuestion();
 }
