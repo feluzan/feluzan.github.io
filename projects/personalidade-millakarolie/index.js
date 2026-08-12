@@ -4,13 +4,24 @@ var historicoRespostas = [];
 var resultadosEmpatados = [];
 var resultadoFinalEscolhido = null;
 var nomeParticipante = "";
+var isTransitioning = false;
 var contagemResultados = {
 	A: 0,
 	B: 0,
 	C: 0,
 };
 
+function sleep(milliseconds) {
+	return new Promise(function (resolve) {
+		setTimeout(resolve, milliseconds);
+	});
+}
+
 function selectOption(optionID) {
+	if (isTransitioning) {
+		return;
+	}
+
 	selectedOption = optionID;
 	$(".option.selected").removeClass("selected");
 	$('.option[optionID="' + optionID + '"]').addClass("selected");
@@ -38,14 +49,32 @@ function sortAndShowQuestion() {
 	fillQuestionWrapper(question);
 }
 
-function enviarResposta() {
-	if (!selectedOption) {
+async function enviarResposta() {
+	if (!selectedOption || isTransitioning) {
 		return;
 	}
 
+	isTransitioning = true;
 	contagemResultados[selectedOption] += 1;
 	historicoRespostas.push(selectedOption);
+
+	var $questionWrapper = $(".question-wrapper");
+	var $selected = $('.option[optionID="' + selectedOption + '"]');
+
+	$selected.addClass("option-confirmed");
+	$questionWrapper.addClass("question-leaving");
+
+	await sleep(420);
+
+	$selected.removeClass("option-confirmed");
+	$questionWrapper.removeClass("question-leaving");
+
 	sortAndShowQuestion();
+
+	$questionWrapper.addClass("question-entering");
+	await sleep(380);
+	$questionWrapper.removeClass("question-entering");
+	isTransitioning = false;
 }
 
 function getResultadoFinal() {
