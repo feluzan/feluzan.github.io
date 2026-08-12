@@ -224,7 +224,7 @@ a {
 }
 
 .start::before {
-  content: "Comecar Quiz";
+  content: "Começar Quiz";
 }
 
 .question-wrapper {

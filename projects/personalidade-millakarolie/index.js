@@ -94,7 +94,7 @@ function getTextoResposta() {
 		"",
 		"Nome: " + nomeParticipante,
 		"Resultado: " + resultadoFinalEscolhido.title,
-		"Essencia: " + resultadoFinalEscolhido.essencia,
+		"Essência: " + resultadoFinalEscolhido.essencia,
 	].join("\n");
 }
 

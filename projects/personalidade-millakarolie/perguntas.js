@@ -4,24 +4,24 @@ var perguntas = [
 		options: [
 			{
 				id: "A",
-				text: "A. Um jardim florido em uma manha de primavera, com o perfume das flores e a luz suave do sol.",
+				text: "A. Um jardim florido em uma manhã de primavera, com o perfume das flores e a luz suave do sol.",
 			},
 			{
 				id: "B",
-				text: "B. Uma casa iluminada, cercada por plantas, grandes janelas e uma atmosfera leve e contemporanea.",
+				text: "B. Uma casa iluminada, cercada por plantas, grandes janelas e uma atmosfera leve e contemporânea.",
 			},
 			{
 				id: "C",
-				text: "C. Um fim de tarde tranquilo no campo, com o vento fresco, o ceu em tons de lilas e o tempo passando sem pressa.",
+				text: "C. Um fim de tarde tranquilo no campo, com o vento fresco, o céu em tons de lilás e o tempo passando sem pressa.",
 			},
 		],
 	},
 	{
-		text: "Se o seu casamento pudesse ser resumido em uma sensacao, seria:",
+		text: "Se o seu casamento pudesse ser resumido em uma sensação, seria:",
 		options: [
 			{
 				id: "A",
-				text: "A. Romantico, delicado e inesquecivel.",
+				text: "A. Romântico, delicado e inesquecível.",
 			},
 			{
 				id: "B",
@@ -34,32 +34,32 @@ var perguntas = [
 		],
 	},
 	{
-		text: "Qual dessas experiencias mais combina com voce?",
+		text: "Qual dessas experiências mais combina com você?",
 		options: [
 			{
 				id: "A",
-				text: "A. Caminhar por ruas charmosas, entrar em uma floricultura, descobrir um cafe especial e apreciar a beleza dos pequenos detalhes.",
+				text: "A. Caminhar por ruas charmosas, entrar em uma floricultura, descobrir um café especial e apreciar a beleza dos pequenos detalhes.",
 			},
 			{
 				id: "B",
-				text: "B. Passar uma tarde em um ambiente clean, com arquitetura contemporanea, boa musica e uma sensacao constante de frescor.",
+				text: "B. Passar uma tarde em um ambiente clean, com arquitetura contemporânea, boa música e uma sensação constante de frescor.",
 			},
 			{
 				id: "C",
-				text: "C. Desligar o celular, colocar uma playlist tranquila, preparar uma bebida favorita e aproveitar um momento so seu.",
+				text: "C. Desligar o celular, colocar uma playlist tranquila, preparar uma bebida favorita e aproveitar um momento só seu.",
 			},
 		],
 	},
 	{
-		text: "As pessoas costumam dizer que voce e...",
+		text: "As pessoas costumam dizer que você é...",
 		options: [
 			{
 				id: "A",
-				text: "A. Romantica, delicada e apaixonada pelos pequenos detalhes.",
+				text: "A. Romântica, delicada e apaixonada pelos pequenos detalhes.",
 			},
 			{
 				id: "B",
-				text: "B. Elegante, autentica e dona de um estilo que chama atencao pela naturalidade.",
+				text: "B. Elegante, autêntica e dona de um estilo que chama atenção pela naturalidade.",
 			},
 			{
 				id: "C",
@@ -71,21 +71,21 @@ var perguntas = [
 
 var resultados = {
 	A: {
-		title: "A Romantica",
+		title: "A Romântica",
 		essencia: "Bloom",
 		description:
-			"Voce vive as emocoes intensamente e acredita que sao os pequenos detalhes que tornam um momento inesquecivel. Sua delicadeza e marcante e sua elegancia acontece de forma natural.<br><br>Sua essencia e...<br><strong>Bloom 🌸</strong><br>Um floral sofisticado, delicado e envolvente. Uma fragrancia que celebra o romance com leveza e sofisticacao.",
+			"Você vive as emoções intensamente e acredita que são os pequenos detalhes que tornam um momento inesquecível. Sua delicadeza é marcante e sua elegância acontece de forma natural.<br><br>Sua essência é...<br><strong>Bloom 🌸</strong><br>Um floral sofisticado, delicado e envolvente. Uma fragrância que celebra o romance com leveza e sofisticação.",
 	},
 	B: {
-		title: "A Contemporanea",
+		title: "A Contemporânea",
 		essencia: "Bambu & Alecrim",
 		description:
-			"Voce valoriza a beleza da simplicidade, aprecia ambientes leves e encontra elegancia no equilibrio. Seu estilo e moderno, refinado e atemporal.<br><br>Sua essencia e...<br><strong>Bambu & Alecrim 🎋</strong><br>Uma fragrancia fresca, luminosa e sofisticada, que transmite leveza e autenticidade.",
+			"Você valoriza a beleza da simplicidade, aprecia ambientes leves e encontra elegância no equilíbrio. Seu estilo é moderno, refinado e atemporal.<br><br>Sua essência é...<br><strong>Bambu & Alecrim 🎋</strong><br>Uma fragrância fresca, luminosa e sofisticada, que transmite leveza e autenticidade.",
 	},
 	C: {
 		title: "A Serena",
 		essencia: "Lavanda & Pimenta",
 		description:
-			"Voce faz do aconchego um estilo de vida. Gosta de criar momentos especiais, desacelerar e aproveitar o presente. Sua calma inspira quem esta ao seu redor.<br><br>Sua essencia e...<br><strong>Lavanda & Pimenta 💜</strong><br>Uma combinacao envolvente que une tranquilidade e personalidade, perfeita para quem transforma calma em presenca.",
+			"Você faz do aconchego um estilo de vida. Gosta de criar momentos especiais, desacelerar e aproveitar o presente. Sua calma inspira quem está ao seu redor.<br><br>Sua essência é...<br><strong>Lavanda & Pimenta 💜</strong><br>Uma combinação envolvente que une tranquilidade e personalidade, perfeita para quem transforma calma em presença.",
 	},
 };
