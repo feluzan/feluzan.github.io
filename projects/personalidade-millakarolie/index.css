@@ -290,12 +290,20 @@ a {
   transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.option.selected,
-.option:hover {
+.option.selected {
   border-color: rgba(197, 163, 90, 0.7);
   background: linear-gradient(180deg, #fffefc 0%, #fbf1df 100%);
   box-shadow: 0 16px 28px rgba(197, 163, 90, 0.14);
   transform: translateY(-2px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .option:hover {
+    border-color: rgba(197, 163, 90, 0.7);
+    background: linear-gradient(180deg, #fffefc 0%, #fbf1df 100%);
+    box-shadow: 0 16px 28px rgba(197, 163, 90, 0.14);
+    transform: translateY(-2px);
+  }
 }
 
 .option-confirmed {
