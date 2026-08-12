@@ -78,9 +78,9 @@ var resultados = {
 	},
 	B: {
 		title: "A Contemporânea",
-		essencia: "Bambu & Alecrim",
+		essencia: "Bamboo & Alecrim",
 		description:
-			"Você valoriza a beleza da simplicidade, aprecia ambientes leves e encontra elegância no equilíbrio. Seu estilo é moderno, refinado e atemporal.<br><br>Sua essência é...<br><strong>Bambu & Alecrim 🎋</strong><br>Uma fragrância fresca, luminosa e sofisticada, que transmite leveza e autenticidade.",
+			"Você valoriza a beleza da simplicidade, aprecia ambientes leves e encontra elegância no equilíbrio. Seu estilo é moderno, refinado e atemporal.<br><br>Sua essência é...<br><strong>Bamboo & Alecrim 🎋</strong><br>Uma fragrância fresca, luminosa e sofisticada, que transmite leveza e autenticidade.",
 	},
 	C: {
 		title: "A Serena",
