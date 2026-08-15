@@ -311,7 +311,7 @@ defaults:
       layout: single
       author_profile: false
       share: true
-      coment: true
+      comments: true
   # _experience
   - scope:
       path: ""
@@ -320,4 +320,4 @@ defaults:
       layout: single
       author_profile: false
       share: true
-      coment: true
+      comments: true
